@@ -210,7 +210,7 @@
 .textSobreNos .caixaText p{
   font-weight: 600;
 }
-.contado{
+.contato{
   width: 95%;
   height: 55vh;
   background: #0038ff;
@@ -220,23 +220,23 @@
   flex-direction: column;
   color: #f1f1f1;
 }
-.contado h2{
+.contato h2{
   color: #FF9F1C;
   margin: 0;
 }
-.contado .ajustContado{
+.contato .ajustcontato{
   width: 25%;
 }
-.contado .ajustContado p{
+.contato .ajustcontato p{
   margin: 0 0 1.5em 0;
 }
-.contado input{
+.contato input{
   width: 30%;
   height: 10%;
   border: none;
   font-size: 1rem;
   margin-bottom: 2em;
 }
-.contado input:focus {
+.contato input:focus {
   outline: none;
 }
