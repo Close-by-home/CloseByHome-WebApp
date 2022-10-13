@@ -1,0 +1,242 @@
+.banner{
+  height: 75vh;
+  margin-top: 18vh;
+  display: flex;
+  justify-content: flex-end;
+}
+.frase {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* padding: 1em; */
+  /* background: blue; */
+}
+.frase h1{
+  font-size: 2.8rem;
+  margin: 2.5em 0 0 0;
+}
+.frase p{
+  margin: 0 0 2em 0;
+}
+.frase span{
+  color: #FF9F1C;
+}
+.imgEmpresa {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: greenyellow; */
+}
+.imgEmpresa img {
+  width: 80%;
+}
+.servicos{
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carrousel{
+  width: 95%;
+  height: 80%;
+  background: linear-gradient(90deg, #0038ff 35%, #00a3ff 100%);
+  border-radius: .5em;
+  box-shadow: .5em .5em .3em #585858;
+  display: flex;
+  color: #f1f1f1;
+}
+.carrousel h3{
+  font-weight: 500;
+}
+.seta{
+  width: 3%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.seta img{
+  width: 25%;
+}
+.conteudo{
+  width: 94%;
+  height: 100%;
+}
+.slide{
+  width: 100%;
+  height: 76%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-around;
+}
+.board{
+  width: 100%;
+  height: 80vh;
+  /* background: pink; */
+  display: flex;
+}
+.textBoard{
+  width: 43%;
+  height: 100%;
+  padding-left: 7%;
+  /* background: lightseagreen; */
+}
+.textBoard h1{
+  margin: 0;
+}
+.textBoard p{
+  margin: 0;
+  font-weight: 300;
+}
+.textBoard span{
+  color: #FF9F1C;
+}
+.msgBoard{
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+.post1{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post2{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.passoApasso{
+  width: 100%;
+  height: 100vh;
+}
+.passoApasso .cliente{
+  width: 100%;
+  height: 50%;
+  background: #ffffff;
+  box-shadow: 0em 0em .5em .01em #6d6d6d;
+  overflow: auto;
+}
+.passoApasso .servico{
+  width: 100%;
+  height: 50%;
+  color: #f1f1f1;
+  background: #0038ff;
+  box-shadow: 0 .1em .5em #6d6d6d;
+  overflow: auto;
+}
+.passoApasso h2{
+  margin: .5em 0 0 1.5em;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.passoApasso .cliente h2{
+  color: #0038ff;
+}
+.passoApasso .servico h2{
+  color: #f1f1f1;
+}
+.passoApasso .passos{
+  width: 100%;
+  height: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.passoApasso .textPassos{
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  /* background: blue; */
+}
+.passoApasso img{
+  width: 13%;
+}
+.passoApasso p{
+  width: 25%;
+}
+.sobreNos{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(90deg, #0038ff 35%, #00a3ff 100%);
+  background-image: url('../../assets/img/teste.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+.sobreNos .logo{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sobreNos .logo img{
+  width: 50%;
+  /* margin-bottom: 5em; */
+}
+.sobreNos .textSobreNos{
+  width: 50%;
+  height: 100%;
+  /* background: red; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sobreNos .textSobreNos .caixaText{
+  background: #fff;
+  border: .1em solid #1f1f1f;
+  border-radius: .2em;
+  padding: 1em 1em 1.5em 1em;
+  width: 60%;
+}
+.textSobreNos .caixaText h2{
+  color: #0038ff;
+  margin: 0 0 1.5em 0;
+  font-weight: 600;
+}
+.textSobreNos .caixaText p{
+  font-weight: 600;
+}
+.contado{
+  width: 95%;
+  height: 55vh;
+  background: #0038ff;
+  padding-left: 5%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  color: #f1f1f1;
+}
+.contado h2{
+  color: #FF9F1C;
+  margin: 0;
+}
+.contado .ajustContado{
+  width: 25%;
+}
+.contado .ajustContado p{
+  margin: 0 0 1.5em 0;
+}
+.contado input{
+  width: 30%;
+  height: 10%;
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 2em;
+}
+.contado input:focus {
+  outline: none;
+}

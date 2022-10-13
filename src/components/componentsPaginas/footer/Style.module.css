@@ -1,0 +1,43 @@
+footer{
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  font-weight: 600;
+}
+footer .redes{
+  width: 18%;
+  height: 100%;
+  padding-left: 2%;
+}
+footer .redes p{
+  margin-bottom: 0;
+}
+footer .redes img{
+  width: 20%;
+}
+footer .contato{
+  width: 20%;
+  height: 100%;
+}
+footer .contato p{
+  margin: .5em;
+}
+footer .cor{
+  color: #FF9F1C;
+}
+footer .site{
+  width: 60%;
+  height: 100%;
+}
+footer .site p{
+  margin: .5em;
+  margin-left: 4.5em;
+}
+footer ul{
+  display: flex;
+  list-style: none;
+  color: #0038ff;
+}
+footer li{
+  margin-left: 2em;
+}
