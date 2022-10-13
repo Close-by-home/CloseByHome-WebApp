@@ -1,0 +1,42 @@
+.bordBotao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .1em .15em;
+  border-radius: .3em;
+}
+.botaoVazio {
+  padding: .35em 1.3em;
+  font-size: 1.1rem;
+  border-radius: .2em;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+.botaoVazio p{
+  margin: 0;
+}
+.azul{
+  background: linear-gradient(90deg, #0038ff 35%, #00a3ff 100%);
+}
+.azul button{
+  color: #0038ff;
+}
+.laranja{
+  background: linear-gradient(90deg, #ff9f1c 30%, #ffbf69 55%);
+  color: #ff9f1c;
+}
+.laranja button{
+  color: #ff9f1c;
+}
+.azul button:hover, .azul button:focus{
+  background: #e3f5ff;
+  outline: none;
+  transition: .2s;
+  /* color: #f1f1f1; */
+}
+.laranja button:hover, .laranja button:focus{
+  background: #fce7cc;
+  outline: none;
+  transition: .2s;
+}

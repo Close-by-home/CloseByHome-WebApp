@@ -1,0 +1,28 @@
+.slide{
+  width: 26%;
+  height: 80%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: .3em;
+  outline: solid .1em #00A3FF;
+  cursor: pointer;
+  box-shadow: .3em .3em .5em #6e6e6e;
+}
+.slide + .slide{
+  margin-left: 4%;
+}
+.filtro{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg,#00a3ff 1%, #00a3ff01 100%);
+  display: flex;
+  align-items: flex-end;
+}
+.filtro:hover{
+  background-image: linear-gradient(0deg,#0038FF 1%, #00a3ff01 100%);
+
+}
+.filtro h3{
+  margin: 0 0 .5em .5em;
+  color: #f1f1f1;
+}

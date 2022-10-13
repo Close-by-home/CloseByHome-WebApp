@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <defs>
+    <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+      <stop stop-color="rgba(0, 56, 255, 1)" offset="0%">
+      </stop>
+      <stop stop-color="rgba(0, 163, 255, 1)" offset="100%">
+      </stop>
+    </linearGradient>
+  </defs>
+  <path 
+    fill="url(#sw-gradient-0)" 
+    fill-opacity="1" 
+    d="
+    M 0 320 L 0 100 Q 180 15 270 120 Q 345 210 495 180 Q 585 165 660 150 Q 735 135 800 140 L 800 320 Z
+    ">
+  </path>
+</svg>

@@ -1,0 +1,20 @@
+.botaoCheio{
+  font-size: 1.5rem;
+  padding: .5em 1.5em;
+  border-radius: 0.1em;
+  border: .1rem solid #f1f1f1;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+.azul{
+  background: linear-gradient(90deg, #0038ff 35%, #00a3ff 100%);
+}
+.laranja{
+  background: linear-gradient(90deg, #ff9f1c 60%, #ffbf69 100%);
+}
+.azul:hover{
+  background: #0038ff;
+}
+.laranja:hover{
+  background: #ffa931;
+}

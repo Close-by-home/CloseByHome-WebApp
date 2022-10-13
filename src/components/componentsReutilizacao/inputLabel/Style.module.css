@@ -1,0 +1,16 @@
+.input input{
+  width: 30em;
+  height: 3em;
+  background-color: #f1f1f1;
+  border: 0.1em solid #FF9F1C;
+  border-radius: .5em;
+  margin-bottom: 1em;
+}
+.input input:focus{
+  outline: none;
+}
+.input label{
+  font-weight: 600;
+}
+.input + .input{
+}
