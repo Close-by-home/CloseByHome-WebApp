@@ -1,3 +1,26 @@
 .mainServico{
   flex: 1;
 }
+.exemplo{
+  width: 50%;
+  height: 50%;
+  background-color: black;
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  justify-content: flex-end;
+}
+.exemplo div{
+  width: 10%;
+  height: 10%;
+}
+
+.div1{
+  background-color: blue;
+}
+.div2{
+  background-color: red;
+}
+.div3{
+  background-color: green;
+}
