@@ -26,10 +26,10 @@ const Home = (props) => {
       </div>
       <fieldset className={ style.contHistorico }>
         <legend>Seus Serviços agendados</legend>
-        <InfosTrabs/> 
-        <InfosTrabs/> 
-        <InfosTrabs/> 
-        <InfosTrabs/> 
+        <InfosTrabs user="Teste Um" status="Em andamento" numero="11 965442857" data="01/01/2000" nota={3}/> 
+        <InfosTrabs user="Teste Dois" status="Concluido" numero="11 965442857" data="01/01/2000" nota={2}/> 
+        <InfosTrabs user="Teste Tres" status="Concluido" numero="11 965442857" data="01/01/2000" nota={5}/> 
+        <InfosTrabs user="Teste Quatro" status="Concluido" numero="11 965442857" data="01/01/2000" nota={1}/>   
       </fieldset>
     </main>
   )
