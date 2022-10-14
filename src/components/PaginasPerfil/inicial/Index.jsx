@@ -1,6 +1,6 @@
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import ServicosPerfil from '../../componentsPaginas/servicosPerfil/Index';
-import InfosTrabs from '../../componentsPaginas/infosTrabs/Index';
+import InfosTrabs from '../../componentsReutilizacao/infosTrabs/Index';
 
 import style from './Style.module.css';
 import img1 from '../../../assets/img/servico1.png';
@@ -26,9 +26,10 @@ const Home = (props) => {
       </div>
       <fieldset className={ style.contHistorico }>
         <legend>Seus Serviços agendados</legend>
-        <div className={ style.historico }>
-          {/* <InfosTrabs/> */}
-        </div>
+        <InfosTrabs/> 
+        <InfosTrabs/> 
+        <InfosTrabs/> 
+        <InfosTrabs/> 
       </fieldset>
     </main>
   )
