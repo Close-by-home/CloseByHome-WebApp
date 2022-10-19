@@ -20,21 +20,24 @@
   /* background: blue; */
   height: 100%;
   align-items: center;
+  cursor: pointer
 }
 .nav img{
   width: 6.5em;
   height: 5.5em;
   margin-left: 2em;
 }
-.nav ul {
+.nav .div_itens {
   display: flex;
   justify-content: space-between;
   list-style: none;
   font-weight: 600;
   /* margin-left: 20em; */
 }
-.nav li{
+.nav a{
   margin-left: 4em;
+  text-decoration: none;
+  color: #000000;
 }
 .nav li:hover{
   text-decoration: underline;

@@ -40,7 +40,7 @@ const Home = () => {
     <>
       <Navbar/>
       <main>
-        <div className={ style.banner }>
+        <div className={ style.banner } id="sec_inicio">
           <div className={ style.frase }>
             <h1>
               Encontre profissionais na
@@ -94,7 +94,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className={style.passoApasso}>
+        <div className={style.passoApasso} id="sec_passoAPasso">
           <div className={style.cliente}>
             <h2>Como funciona para o cliente?</h2>
             <div className={style.passos}>
@@ -122,7 +122,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className={style.sobreNos}>
+        <div className={style.sobreNos} id="sec_sobre">
           <div className={style.logo}>
             <img src={ logo } alt="" />
           </div>
@@ -133,9 +133,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className={style.contado}>
+        <div className={style.contato} id="sec_contato">
           <h2>Gostou da ideia?</h2>
-          <div className={style.ajustContado}>
+          <div className={style.ajustContato}>
             <p>Entre em contato com a gestão do seu condominio e mostra a ideia para eles.</p>
             <p>Após isso eles mandam um email para a gente confirmando o desejo de participar.</p>
           </div>
