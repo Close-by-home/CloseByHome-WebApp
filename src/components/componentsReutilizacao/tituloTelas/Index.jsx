@@ -11,7 +11,7 @@ const TitutloTelas = (props) => {
   const [notificacao, setNotificacao] = useState(["msg 1", "msg 2", "msg 3"])
 
   function excluirNotificacao(chave) {
-    const novaLista = notificacao.filter(msg => {
+    const novaLista = notificacao.filter((msg) => {
       return msg !== chave
     }) 
     setNotificacao(novaLista);
@@ -27,7 +27,7 @@ const TitutloTelas = (props) => {
           src={notificacao.length > 0 ? notificacaoNova : notificacaoVazio} 
           alt="notificação" 
         />
-        <div className={ style.imgPerfil }></div>
+        <div onClick={() => props.pagina('perfil')} className={ style.imgPerfil }></div>
       </div>
       {aparecer ? <div className={ style.notificacao }>
         {notificacao ? 
