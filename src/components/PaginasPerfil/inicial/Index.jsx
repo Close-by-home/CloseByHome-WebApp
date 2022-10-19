@@ -2,6 +2,8 @@ import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import ServicosPerfil from '../../componentsPaginas/servicosPerfil/Index';
 import InfosTrabs from '../../componentsReutilizacao/infosTrabs/Index';
 
+import historico from '../../../Data/historico';
+
 import style from './Style.module.css';
 import img1 from '../../../assets/img/servico1.png';
 import img2 from '../../../assets/img/servico2.png';
@@ -10,7 +12,7 @@ import img3 from '../../../assets/img/servico5.png';
 const Home = (props) => {
   return(
     <main className={ style.mainHome }>
-      <TitutloTelas texto="Bem vindo" destaque="Usuario" usuario="Usuario"/>
+      <TitutloTelas texto="Bem vindo" destaque="Usuario" usuario="Usuario" pagina={ props.pagina }/>
       <div className={ style.servicos }>
         <h2 >Procurando por um Serviço?</h2  >
         <div className={ style.slideCont }>
@@ -25,11 +27,19 @@ const Home = (props) => {
         </div>
       </div>
       <fieldset className={ style.contHistorico }>
-        <legend>Seus Serviços agendados</legend>
-        <InfosTrabs user="Teste Um" status="Em andamento" numero="11 965442857" data="01/01/2000" nota={3}/> 
-        <InfosTrabs user="Teste Dois" status="Concluido" numero="11 965442857" data="01/01/2000" nota={2}/> 
-        <InfosTrabs user="Teste Tres" status="Concluido" numero="11 965442857" data="01/01/2000" nota={5}/> 
-        <InfosTrabs user="Teste Quatro" status="Concluido" numero="11 965442857" data="01/01/2000" nota={1}/>   
+        <legend>Seus Serviços agendados</legend> 
+        {historico.map((trab) => {
+          return(
+          <InfosTrabs 
+            user={ trab.user } 
+            status={ trab.status } 
+            numero={ trab.numero } 
+            data={ trab.data } 
+            nota={ trab.nota }
+            trabalho={ trab.servico }
+          />
+          ) 
+        })}   
       </fieldset>
     </main>
   )

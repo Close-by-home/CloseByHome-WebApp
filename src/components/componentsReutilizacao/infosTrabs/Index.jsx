@@ -23,29 +23,34 @@ const InfosTrabs = (props) => {
         <div className={ style.tag }>
           <div className={ style.tagTrab }>
             <div className={ style.pontTag }></div>
-            <p>Teste</p>
+            <p>{ props.trabalho }</p>
           </div>
         </div>
         <table>
-          <tr>
-            <th>Prestador:</th>
-            <th>Status:</th>
-            <th>Contato:</th>
-            <th>Data e Horario:</th>
-            <th>Sua nota:</th>
-          </tr>
-          <tr>
-            <td>{ props.user }</td>
-            <td style={{ color: '#FBFF43' }}>{ props.status }</td>
-            <td>{ props.numero }</td>
-            <td>{ props.data }</td>
-            <td>
-              <img src="" alt="" />
-              {nota(notaTemp).map((estrela) => {
-                return estrela ? <img alt="estrela" src={ notaUp }/> : <img alt="estrela apagada" src={ notaDown }/>
-              })}
-            </td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Prestador:</th>
+              <th>Status:</th>
+              <th>Contato:</th>
+              <th>Data e Horario:</th>
+              <th>Nota média:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{ props.user }</td>
+              <td style={{ color: '#FBFF43' }}>{ props.status }</td>
+              <td>{ props.numero }</td>
+              <td>{ props.data }</td>
+              <td>
+                <img src="" alt="" />
+                {nota(notaTemp).map((estrela, i) => {
+                  return estrela ? <img alt="estrela" src={ notaUp } key={ i }/> : 
+                  <img alt="estrela apagada" src={ notaDown } key={ i }/>
+                })}
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </main>

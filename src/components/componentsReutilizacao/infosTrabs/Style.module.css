@@ -1,6 +1,7 @@
 .main{
   width: 98%;
-  min-height: 38%;
+  min-height: 6.61em;
+  /* min-height: 38%; */
   background-color: #00A3FF;
   border-radius: .5em;
   display: flex;
@@ -43,14 +44,24 @@
 .infos th{
   text-align: left;
 }
+.infos:nth-child(1){
+  width: 9em;
+}
+.infos th:nth-child(2){
+  width: 8em;
+}
 .infos td{  
   padding: .5em 0;
   font-size: .9rem;
   margin: 0 0 2% 0;
   /* display: flex; */
 }
+.infos td{
+  /* background-color: blue; */
+  padding: 0;
+}
 .infos td img{
-  width: 10%;;
+  width: 10%;
 }
 .tag{
   width: 100%;
@@ -73,6 +84,7 @@
   height: 100%;
   background-color: #FF9F1C;
   border-radius: .2em;
+  box-shadow: .1em 0 .1em #3d3d3d70;
 }
 .tagTrab p{
   margin: 0 1em;
