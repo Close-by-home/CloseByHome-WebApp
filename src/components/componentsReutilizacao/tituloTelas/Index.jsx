@@ -5,6 +5,7 @@ import Notificacao from '../../componentsPaginas/notificacao/Index';
 import style from './Style.module.css';
 import notificacaoVazio from '../../../assets/icons/notificacaoVazio.png';
 import notificacaoNova from '../../../assets/icons/notificacaoNova.png';
+import fotoPerfil from '../../../assets/img/users/imgPerfil.png';
 
 const TitutloTelas = (props) => {
   const [aparecer, setAparecer] = useState(false)
@@ -27,7 +28,9 @@ const TitutloTelas = (props) => {
           src={notificacao.length > 0 ? notificacaoNova : notificacaoVazio} 
           alt="notificação" 
         />
-        <div onClick={() => props.pagina('perfil')} className={ style.imgPerfil }></div>
+        <div onClick={() => props.pagina('perfil')} className={ style.imgPerfil }>
+          <img src={ fotoPerfil } alt="" />
+        </div>
       </div>
       {aparecer ? <div className={ style.notificacao }>
         {notificacao ? 

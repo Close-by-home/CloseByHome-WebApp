@@ -6,6 +6,8 @@ import style from './Style.module.css';
 import estrelaCheia from '../../../assets/icons/estrelaCheia.png';
 import estrelaVazia from '../../../assets/icons/estrelaVazia.png';
 
+
+
 const InfosAgenda = (props) => {
   const [estrela2, setEstrela2] = useState(true);
   const [estrela3, setEstrela3] = useState(true);

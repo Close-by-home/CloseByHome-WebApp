@@ -15,22 +15,46 @@ const Navbar = () => {
         <img src={logo} alt=""/>
         <div className={style.div_itens}>
           <Link 
-            style={{ cursor: "pointer" }} activeClass="active" to="sec_inicio" spy={true} smooth={true} offset={-100} duration={500}
+            className={ style.link } 
+            activeClass="active" 
+            to="sec_inicio" 
+            spy={true} 
+            smooth={true}
+            offset={-100} 
+            duration={500}
           >
             Inicio
           </Link>
           <Link 
-            style={{ cursor: "pointer" }} activeClass="active" to="sec_passoAPasso" spy={true} smooth={true} offset={-100} duration={500}
+            className={ style.link } 
+            activeClass="active" 
+            to="sec_passoAPasso" 
+            spy={true} 
+            smooth={true} 
+            offset={-100} 
+            duration={500}
           >
             Como Funciona?
           </Link>
           <Link 
-            style={{ cursor: "pointer" }} activeClass="active" to="sec_sobre" spy={true} smooth={true} offset={-100} duration={500}
+            className={ style.link } 
+            activeClass="active" 
+            to="sec_sobre" 
+            spy={true} 
+            smooth={true} 
+            offset={-100} 
+            duration={500}
           >
             Sobre Nós!
           </Link>
           <Link 
-            style={{ cursor: "pointer" }} activeClass="active" to="sec_contato" spy={true} smooth={true} offset={-100} duration={500}
+            className={ style.link } 
+            activeClass="active" 
+            to="sec_contato" 
+            spy={true} 
+            smooth={true} 
+            offset={-100} 
+            duration={500}
           >
             Entre em Contato
           </Link>

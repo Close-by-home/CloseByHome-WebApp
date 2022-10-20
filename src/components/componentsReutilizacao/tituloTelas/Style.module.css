@@ -41,6 +41,14 @@
   background: #cccccc;
   margin: 0 0.5em;
   outline: 0.2em solid #FF9F1C;
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.imgPerfil img{
+  width: 100%;
+  height: 100%;
+  border-radius: 5em;
 }
 .notificacao{
   position: absolute;
