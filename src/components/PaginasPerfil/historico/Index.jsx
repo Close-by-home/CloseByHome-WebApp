@@ -15,12 +15,8 @@ const Historico = (props) => {
           {historico.map((trab) => {
           return(
           <InfosTrabs 
-            user={ trab.user } 
-            status={ trab.status } 
-            numero={ trab.numero } 
-            data={ trab.data } 
-            nota={ trab.nota }
-            trabalho={ trab.servico }
+            trab={ trab }
+            key={ trab.id }
           />
           ) 
         })}

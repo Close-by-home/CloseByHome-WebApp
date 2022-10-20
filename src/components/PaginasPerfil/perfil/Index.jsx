@@ -1,8 +1,10 @@
-import Style from './Style.module.css';
+import style from './Style.module.css';
 
 const Perfil = () => {
   return(
-    'teste'
+    <main className={ style.perfil }>
+      
+    </main>
   )
 }
 

@@ -35,11 +35,13 @@
   /* margin-left: 20em; */
 }
 .nav a{
-  margin-left: 4em;
   text-decoration: none;
   color: #000000;
 }
-.nav li:hover{
+.nav a + a{
+  margin-left: 4em;
+}
+.nav a:hover{
   text-decoration: underline;
   cursor: pointer;
 }

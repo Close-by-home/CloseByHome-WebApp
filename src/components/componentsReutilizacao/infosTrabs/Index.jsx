@@ -3,11 +3,11 @@ import style from './Style.module.css';
 import notaUp from '../../../assets/icons/estrelaCheia.png';
 import notaDown from '../../../assets/icons/estrelaVazia.png';
 
-const InfosTrabs = (props) => {
+const InfosTrabs = ({ trab }) => {
   let notaTemp = [0, 0, 0, 0, 0];
 
   function nota(array) {
-    array.fill(1, 0, props.nota);
+    array.fill(1, 0, trab.nota);
     console.log(array)
     return array;
   }
@@ -17,13 +17,15 @@ const InfosTrabs = (props) => {
   return (
     <main className={ style.main }>
       <div className={ style.imgUser }>
-        <div className={ style.img }></div>
+        <div className={ style.img } style={{backgroundImage: `url(${trab.imagem})`}}>
+        
+        </div>
       </div>
       <div className={ style.infos }>
         <div className={ style.tag }>
           <div className={ style.tagTrab }>
             <div className={ style.pontTag }></div>
-            <p>{ props.trabalho }</p>
+            <p>{ trab.servico }</p>
           </div>
         </div>
         <table>
@@ -38,12 +40,12 @@ const InfosTrabs = (props) => {
           </thead>
           <tbody>
             <tr>
-              <td>{ props.user }</td>
-              <td style={{ color: '#FBFF43' }}>{ props.status }</td>
-              <td>{ props.numero }</td>
-              <td>{ props.data }</td>
+              <td>{ trab.user }</td>
+              <td style={{ color: '#FBFF43' }}>{ trab.status }</td>
+              <td>{ trab.numero }</td>
+              <td>{ trab.data }</td>
               <td>
-                <img src="" alt="" />
+                
                 {nota(notaTemp).map((estrela, i) => {
                   return estrela ? <img alt="estrela" src={ notaUp } key={ i }/> : 
                   <img alt="estrela apagada" src={ notaDown } key={ i }/>

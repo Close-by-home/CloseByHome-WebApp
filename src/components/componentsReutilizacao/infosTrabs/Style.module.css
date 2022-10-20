@@ -23,6 +23,8 @@
   background-color: #cecece;
   border-radius: 5em;
   border: solid .2em #FF9F1C;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 .infos{
   width: 88%;
