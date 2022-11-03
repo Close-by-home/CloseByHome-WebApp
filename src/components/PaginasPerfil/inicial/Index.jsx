@@ -14,7 +14,7 @@ const Home = (props) => {
     <main className={ style.mainHome }>
       <TitutloTelas texto="Bem vindo" destaque="Usuario" usuario="Usuario" pagina={ props.pagina }/>
       <div className={ style.servicos }>
-        <h2 >Procurando por um Serviço?</h2  >
+        <h2>Procurando por um Serviço?</h2>
         <div className={ style.slideCont }>
           <ServicosPerfil img={img1} msg="Reparo Técnico" link={ props.pagina }/> 
           <ServicosPerfil img={img2} msg="Cabeleleiro" link={ props.pagina }/> 

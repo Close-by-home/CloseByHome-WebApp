@@ -92,6 +92,7 @@
   margin: 0 1em;
   color: #000;
   font-size: .9rem;
+  font-weight: 600
 }
 ::-webkit-scrollbar-thumb{
   background-color: #FF9F1C;

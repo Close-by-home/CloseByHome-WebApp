@@ -18,9 +18,9 @@ const InfosServicos = ({ trab, funcao }) => {
         <p className={ style.p1 }>Prestador:</p>
         <p className={ style.p2 }>{ trab.user }</p>
         {nota(notaTemp).map((estrela, i) => {
-                  return estrela ? <img alt="estrela" src={ notaUp } key={ i }/> : 
-                  <img alt="estrela apagada" src={ notaDown } key={ i }/>
-                })}
+          return estrela ? <img alt="estrela" src={ notaUp } key={ i }/> : 
+          <img alt="estrela apagada" src={ notaDown } key={ i }/>
+        })}
       </div>
       <div className={ style.infosTag }>
         <div className={ style.tag }>
