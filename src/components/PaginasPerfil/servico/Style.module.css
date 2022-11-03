@@ -8,18 +8,15 @@
   width: 97%;
   height: 88%;
   padding-left: 3%;
-  /* background-color: red; */
   display: flex;
 }
 .acharServicos{
   width: 49%;
   height: 100%;
-  /* background-color: blue; */
 }
 .filtros{
   width: 100%;
   height: 30%;
-  /* background-color: pink; */
 }
 .filtros p{
   font-weight: 600;
@@ -64,6 +61,7 @@
   border-radius: .5em;
   background-color: #FFBF69;
   border: 0;
+  cursor: pointer;
 }
 .selectDiv select:focus{
   outline: none;
