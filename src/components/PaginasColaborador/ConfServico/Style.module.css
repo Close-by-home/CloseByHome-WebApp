@@ -1,9 +1,15 @@
+.servicos hr{
+  margin: 0;
+  background-color: #00A3FF;
+}
+
 .mainServico{
-    flex: 1;
-  }
-  .mainServico p{
-    margin: 0;
-  }
+  flex: 1;
+  
+}
+.mainServico p{
+  margin: 0;
+}
   .servicos{
     width: 97%;
     height: 88%;
@@ -14,113 +20,134 @@
   .acharServicos{
     width: 49%;
     height: 100%;
-    /* background-color: blue; */
   }
-  .filtros{
+  .filtrosAgenda{
+    width: 100%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: pink; */
+  }
+  .filtrosAgenda p{
+    margin-bottom: 1em;
+  }
+
+  .botaoCont{
+    display: flex;
+  }
+  .filtrosDias{
     width: 100%;
     height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
     /* background-color: pink; */
   }
   .filtros p{
-    font-weight: 600;
+    font-weight: 1000;
     margin-bottom: .2em;
+    
   }
-  .inputDiv{
-    width: 60%;
-    height: 2em;
-    background-color: #f1f1f1;
-    border-radius: .5em;
-    border: .1em solid #FF9F1C;
-    padding: 0 1%;
-    margin-bottom: 1.5em;
-    box-shadow: 0 0.2em .2em #00000050;
+  .calendario{
+    margin-top: 3em;
     display: flex;
-    align-items: center;
+    text-align: center;
   }
-  .inputDiv input{
-    width: 90%;
-    height: 90%;
-    background-color: #f1f1f1;
+
+   .botao button{
+    padding: .2em .3em;
+    background-color: #f9a83d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 2em;
     border: none;
+    border-radius:.3em; 
+    box-shadow: .2em .2em .3em #00000080;
   }
-  .inputDiv input:focus{
-    outline: none;
+
+
+
+   .botao button:hover{
+    background-color: #c57205 ;
+    transition: .1s;
   }
-  .inputDiv img{
-    margin-left: 2%;
-    width: 7%;
+
+  .botao img{
+    width: 2em;
   }
-  .selectDiv{
-    width: 40%;
-    background-color: #FFBF69;
-    position: relative;
-    border-radius: .5em;
-    box-shadow: 0 .2em .2em #00000050;
+
+  .botaoRemover{
+    display: flex;
+    margin-top:1.7em;
+    align-items: flex-end;
+    margin-left: 2em;
+    background-color:#FFBF69;
+    height: 2em;
+    align-items: center;
+    border-radius: .3em;
+    width: 8em;
+    
   }
-  .selectDiv select{
-    font-size: 1rem;
-    padding: .4em;
-    width: 100%;
-    border-radius: .5em;
-    background-color: #FFBF69;
-    border: 0;
+
+  .botaoRemover button{
+    padding: .2em .3em;
+    background-color: #f9a83d;
+    display: flex;
+    
+    align-items: center;
+    cursor: pointer;
+    
+    border: none;
+    border-radius:.3em; 
+    box-shadow:.3em .0em .3em #00000080; 
   }
-  .selectDiv select:focus{
-    outline: none;
+
+  .botaoRemover img{
+    width: 2em;
   }
-  .setaPersonalizada{
-    background-color: #FF9F1C;
-    display: block;
-    width: 1.9em;
-    height: 100%;
-    border-radius: 0.4em;
-    position: absolute;
-    top: 0;
-    right: 0;
-    box-shadow: -.1em 0 .1em #00000030;
+
+  .botaoRemover button:hover{
+    background-color: #c57205 ;
+    transition: .1s;
+  }
+
+   .botaoRemover p{
+   margin-left: 1em;
+  } 
+
+  .mainConteudo{
+    margin-left: 1em;
+    margin-top: 5em;
+  }
+
+  .mainEditar{
+    margin-left: 1em;
+    display: flex;
+    
+  }
+
+  .horario{
+    background-color: #00A3FF;
+    width: 5em;
+    height: 2em;
     display: flex;
     align-items: center;
-    justify-content: center;  
-    pointer-events: none;
+    margin-left: 1em;
   }
-  .setaPersonalizada img{
-    width: 40%;
-  }
-  .servicosDisponiveis{
-    width: 100%;
-    height: 70%;
-    /* background-color: pink; */
-  }
-  .servicosDisponiveis fieldset{
-    width: 80%;
-    height: 84%;
-    border-radius: .2em;
-    overflow-y: scroll;
-    border: .1em solid #FF9F1C;
+
+  .d{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-left: 1em;
   }
-  .servicosDisponiveis legend{
-    font-weight: 600;
-    padding: 0 1em;
-    margin: 0 .5em;
-  }
-  .servicos hr{
-    height: 95%;
-    margin: 0;
-    background-color: #0038FF50;
-    border: .05em solid #0038FF50;
-  }
-  .mostrarServico{
-    width: 49%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* background-color: red; */
-  }
-  .mostrarServico h2{
-    margin: 0;
-  }
+  
+
+
+  
+  
+  
+  
+
+  

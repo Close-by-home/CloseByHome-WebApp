@@ -14,17 +14,17 @@ const Calendario = (props) => {
     props.dia(dataFormatada)
   }
 
-  // function desativarDias(desativaData) {
-  //   console.log(desativaData.getDate())
-  //   return desativaData.getDay() === 0 || desativaData.getDay() === 6;
-  // }
+  function desativarDias(desativaData) {
+    console.log(desativaData.getDate())
+    return desativaData.getDay() === 6;
+  }
 
   return(
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <CalendarPicker
       className="calendariopicker"
       hintText="Weekends Disabled"
-      // shouldDisableDate={(data) => desativarDias(new Date(data))}
+      shouldDisableDate={(data) => desativarDias(new Date(data))}
       date={data}
       onChange={(novaData) => agendar(novaData)}/>
     </LocalizationProvider>

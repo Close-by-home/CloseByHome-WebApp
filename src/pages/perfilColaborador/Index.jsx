@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import Sidebar from '../../components/componentsPaginas/sidebar/Index';
-import Home from '../../components/PaginasPerfil/inicial/Index';
-import Servico from '../../components/PaginasPerfil/servico/Index';
+import Sidebar from '../../components/componentsPaginas/sidebarColaborador/Index';
+import Home from '../../components/PaginasColaborador/inicial/Index';
+import ConfServico from '../../components/PaginasColaborador/ConfServico/Index';
 import Agenda from '../../components/PaginasPerfil/agenda/Index';
 import Historico from '../../components/PaginasPerfil/historico/Index';  
 
@@ -20,7 +20,7 @@ const PerfilColaborador = () => {
     <main className={ style.main }>
       <Sidebar pagina={ renderizarPagina } estado={ pagina }/>
       { pagina === "home" ? <Home/> : ""}
-      { pagina === "servico" ? <Servico/> : ""}
+      { pagina === "confServico" ? <ConfServico/> : ""}
       { pagina === "agenda" ? <Agenda/> : ""}
       { pagina === "historico" ? <Historico/> : "" }
     </main>
