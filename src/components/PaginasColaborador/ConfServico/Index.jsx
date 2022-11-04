@@ -1,78 +1,86 @@
 import { useState } from 'react';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { CalendarPicker } from '@mui/x-date-pickers/CalendarPicker';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 import agenda from '../../../Data/agenda';
-
+import Calendario from '../../componentsReutilizacao/calendario/Index';
+import maisIcon from '../../../assets/icons/icon-mais.png';
+import menosIcon from '../../../assets/icons/icon-menos.png';
 
 import TituloTelas from '../../componentsReutilizacao/tituloTelas/Index';
-import InfosServicos from '../../componentsReutilizacao/infosServicos/Index';
-import InfosAgenda from '../../componentsReutilizacao/infosAgenda/Index';
 
 import style from './Style.module.css'; 
 
-import naoEncontrado from '../../../assets/img/servicoNaoEncontrado.png';
+
 
 
 
 const ConfServico = (props) => {
-    const [data, setData] = useState()
-    const [servicos, setServicos] = useState([]);
-  
-    useEffect(() => {
-      let dia = new Date(data)
-      let diaAtual = dia.getDate() + "/" + dia.getMonth();
-      console.log(diaAtual)
-      setServicos(agenda.filter((trab) => {
-        return trab.dia === diaAtual
-      }))
-    }, [data])
 
-    function desativarDias(desativaData) {
-        return desativaData.getDay() === 0 || desativaData.getDay() === 6;
-      }                
+  function botaoAdicionar(params) {
+    console.log ("eu sou gatao")
+  }
 
+  function botaoRemover(params) {
+    
+  }
   return(
              
     <main className={ style.mainServico }>
           <TituloTelas texto="Configure seus" destaque="Serviços!" usuario="Usuario" pagina={ props.pagina }/>
       <div className={ style.servicos }>
         <div className={ style.acharServicos }>
-          <div className={ style.filtros }>
+          <div className={ style.filtrosDias }>
             <p>Tipos de serviços oferecidos:</p>
-            
+           <div className={style.botaoCont}>
+           <div className={style.botao}>
+          <button onClick={()=> botaoAdicionar()}>
+            <img src={maisIcon} alt="" />
+          </button>
+              </div>            
+                <div className={style.botaoRemover}>
+                      <button onClick={()=> botaoRemover}>
+                        <img src={menosIcon} alt="" /> 
+                      </button>
+                      <p>Pedreiro</p>
+                 </div>
+           </div>
+             </div>
+
+            <div className={style.filtrosAgenda}>
+            <p>Tipos de serviços oferecidos:</p>
+            <div className={style.Calendario}>
+            <Calendario>
+            </Calendario>
             </div>
-            <p>Tipos de serviços oferecidos:</p>
-            <div className={ style.mainAgenda }>
-      <TitutloTelas texto="Veja sua" destaque="agenda!" usuario="Usuario" pagina={ props.pagina }/>
-      <div className={ style.paginaAgenda }>
-        <div className={style.calendario}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <CalendarPicker
-              className="calendariopicker"
-              hintText="Weekends Disabled"
-              shouldDisableDate={(data) => desativarDias(new Date(data))}
-              date={data}
-              onChange={(novaData) => agendar(novaData)}  
-            />
-          </LocalizationProvider>
-        </div>
-        </div>
-        </div>
-              
-          </div>
-          <div className={ style.servicosDisponiveis }>
+            </div>
+            </div>
+            <hr/>
+            <div className={style.mainDias}>
+              <div className={style.mainConteudo}>
+                <h2>Dias Selecionados:</h2>
+                <p>22, 25, 30, 31</p>
+              </div>
+              <div className={style.mainEditar}>
+                <h2>Editar Horários:</h2>
+              </div>
+                <div className={style.d}></div>
+                <p>De</p>
+                <div className={style.horario}>
+                  09:00 
+                </div>
+
+
+
+            </div>
+            
     
-          </div>
+          
+            
+          
+        
         </div>
-
-        <hr />
-
-        <div className={ style.mostrarServico }>
-          <h2>Selecione um Serviço</h2>
-          <img src={ naoEncontrado } alt="" />
-        </div>
+        
+    
+             
       
     </main>
   )

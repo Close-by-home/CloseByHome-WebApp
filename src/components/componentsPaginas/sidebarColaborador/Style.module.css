@@ -43,8 +43,8 @@
   .nav li:nth-child(4)::before{
     background-image: url("../../../assets/icons/sidebarIcons/historico.png");
   }
-  .link:nth-child(5) li::before{
-    background-image: url("../../../assets//icons//sidebarIcons/dashboard.png");
+  .nav li:nth-child(5):before{
+    background-image: url("../../../assets/icons/sidebarIcons/grafico.png");
   }
   .nav li::before{
     width: 10%;
