@@ -1,0 +1,96 @@
+.mainDash{
+  flex: 1;
+}
+.container{
+  width: 100%;
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* .container hr{
+  width: 80%;
+  margin: 0;
+  margin: ;
+} */
+.grafico{
+  width: 90%;
+  height: 50%;
+  /* background-color: red; */
+}
+.naoTitulo{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.contLinha{
+  width: 90%;
+  height: 45%;
+  background-color: #FF9F1C20;
+  border: #FF9F1C solid .1em ;
+  border-radius: .3em;
+  text-align: center;
+  margin-bottom: 3%;
+}
+.contLinha h3{
+  color: #FF9F1C;
+}
+.container h3{
+  margin: 0 1em;
+}
+.graficoLinha{
+  width: 46%;
+  height: 100%;
+}
+.infoLinha{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.resumLinha{
+  text-align: center;
+  background-color: #FF9F1C80;
+  border: #FF9F1C solid .2em;
+  padding: 1em 2em;
+  border-radius: .5em;
+  /* margin-left: 3em; */
+}
+.resumLinha p{
+  margin: .5em 0;
+}
+.contBarra{
+  width: 90%;
+  height: 45%;
+  text-align: center;
+  background-color: #00A3FF20;
+  border: #00A3FF solid .1em ;
+  border-radius: .3em;
+}
+.contBarra h3{
+  color: #0038FF;
+}
+.infoBarra{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.resumBarra{
+  text-align: center;
+  background-color: #00A3FF50;
+  padding: .5em 3em;
+  border-radius: .5em;
+  /* margin-right: 7em;   */
+  border: #00A3FF solid 0.2em;
+}
+.resumBarra p{
+  margin: .5em 0;
+}
+.graficoBarra{
+  width: 45%;
+  height: 100%;
+}

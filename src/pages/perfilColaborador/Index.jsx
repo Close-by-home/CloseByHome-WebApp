@@ -5,6 +5,7 @@ import Home from '../../components/PaginasColaborador/inicial/Index';
 import ConfServico from '../../components/PaginasColaborador/ConfServico/Index';
 import Agenda from '../../components/PaginasPerfil/agenda/Index';
 import Historico from '../../components/PaginasPerfil/historico/Index';  
+import Dashboard from '../../components/PaginasColaborador/dashboard/Index';
 
 import style from './Style.module.css';
 
@@ -19,10 +20,11 @@ const PerfilColaborador = () => {
   return(
     <main className={ style.main }>
       <Sidebar pagina={ renderizarPagina } estado={ pagina }/>
-      { pagina === "home" ? <Home/> : ""}
-      { pagina === "confServico" ? <ConfServico/> : ""}
-      { pagina === "agenda" ? <Agenda/> : ""}
-      { pagina === "historico" ? <Historico/> : "" }
+      { pagina === "home" ? <Home  pagina={ renderizarPagina }/> : ""}
+      { pagina === "confServico" ? <ConfServico pagina={ renderizarPagina }/> : ""}
+      { pagina === "agenda" ? <Agenda pagina={ renderizarPagina }/> : ""}
+      { pagina === "historico" ? <Historico pagina={ renderizarPagina }/> : "" }
+      { pagina === "dashboard" ? <Dashboard pagina={ renderizarPagina }/> : "" }
     </main>
   )
 }

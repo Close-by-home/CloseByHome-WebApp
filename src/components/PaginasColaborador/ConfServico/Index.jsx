@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import agenda from '../../../Data/agenda';
-import Calendario from '../../componentsReutilizacao/calendario/Index';
+import Calendario from '../../ComponentsBibliotecas/calendario/Index';
 import maisIcon from '../../../assets/icons/icon-mais.png';
 import menosIcon from '../../../assets/icons/icon-menos.png';
 

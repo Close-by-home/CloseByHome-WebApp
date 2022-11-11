@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import agenda from '../../../Data/agenda';
 
-import Calendario from '../../componentsReutilizacao/calendario/Index';
+import Calendario from '../../ComponentsBibliotecas/calendario/Index';
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import InfosAgenda from '../../componentsReutilizacao/infosAgenda/Index';
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
