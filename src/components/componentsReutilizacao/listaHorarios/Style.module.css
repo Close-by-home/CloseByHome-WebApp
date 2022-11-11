@@ -1,0 +1,28 @@
+.conteudoLista{
+    margin-top: 1em;
+    display: flex;
+    margin-bottom: 5em;
+    
+}
+
+.conteudoLista button{
+    padding: .20em .20em;
+    background-color: #0038FF;
+    display: flex;
+    cursor: pointer;
+    border: none;
+    border-radius:.3em; 
+    box-shadow: .2em .2em .3em #00000080;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .conteudoLista img{
+    height: 1.5em;
+    margin-left:0.5;
+  }
+
+  .conteudoLista button:hover{
+    background-color: #072fc0;
+    transition: .1s;
+  }
