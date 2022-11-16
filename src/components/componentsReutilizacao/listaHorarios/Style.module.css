@@ -1,8 +1,9 @@
 .conteudoLista{
-    margin-top: 1em;
-    display: flex;
-    margin-bottom: 5em;
-    
+  display: flex;    
+}
+
+.conteudoLista + .conteudoLista{
+  margin-top: .5em;
 }
 
 .conteudoLista button{

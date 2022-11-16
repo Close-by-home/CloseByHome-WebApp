@@ -4,18 +4,20 @@ import { AppContext } from '../../../Data/Data';
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import InputPerfil from '../../componentsPaginas/inputPerfil/Index';
 import Botao from '../../componentsReutilizacao/botaoCheio/Botao';
+import MsgModal from '../../modals/modalServico/Index';
 
 import style from './Style.module.css';
 import editar from '../../../assets/icons/editar.png';
 import imgPerfil from '../../../assets/img/users/imgPerfil.png';
 
 const Perfil = () => {
-  const { nome, bloco, apartamento, codigoDoCondominio, email, numero} = useContext(AppContext);
+  const { nome, bloco, apartamento, codigoDoCondominio, email, numero, servico} = useContext(AppContext);
   
   const [valorEmail, setValorEmail] = useState(email);
   const [editEmail, setEditEmail] = useState(true);
   const [valorNumero, setValorNumero] = useState(numero);
   const [editNumero, setEditNumero] = useState(true);
+  const [modal, setModal] = useState(false)
   
   function mudarEmail(value) {
     setValorEmail(value)
@@ -39,6 +41,10 @@ const Perfil = () => {
 
   return(
     <main className={ style.perfil }>
+      {modal ? 
+      <MsgModal titulo="Ativar conta" fechar={() => setModal(false)}>
+        <p>Você tem certeza que deseja ativar sua conta de serviço?</p>
+      </MsgModal> : null}
       <TitutloTelas destaque="Perfil" />
       <div className={style.container}>
         <div className={style.foto}>
@@ -71,7 +77,9 @@ const Perfil = () => {
               <img src={editar} alt="" />
             </div>
           </div>
-          <Botao text="Ativar conta serviço" cor="azul" estilo={{marginTop: "1em"}}/>
+          {!servico ? 
+            <Botao text="Ativar conta serviço" cor="azul" funcao={() => setModal(true)} estilo={{marginTop: "1em"}}/> : 
+            <Botao text="Desativar conta serviço" cor="azul" funcao={() => setModal(true)} estilo={{marginTop: "1em"}}/>}
         </div>
       </div>
     </main>

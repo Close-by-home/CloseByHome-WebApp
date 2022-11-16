@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Calendario from '../../componentsReutilizacao/calendario/Index'; 
+import Calendario from '../../ComponentsBibliotecas/calendario/Index'; 
 import ButtonCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 import MsgModal from '../../modals/modalServico/Index';
 
@@ -74,8 +74,29 @@ const AgendaPresador = ({ infos }) => {
           estilo={{fontSize: "1.3rem", padding: ".5em 1.3em", marginBottom: "1em"}}/> : null}
         </div>
         {modal ? 
-        <MsgModal fechar={() => setModal(false)}>
-          diughaifasdfdsçkfjaçfdsfçlknsdflçkasf
+        <MsgModal fechar={() => setModal(false)} titulo="Teste">
+          <p>Foi selecionado este serviço:</p>
+          <div className={style.cont}>
+            <div className={style.card}>
+              <div className={style.perfilModal} style={{backgroundImage: `url(${infos.imagem})`}}></div>
+              <div className={style.info1}>
+                <p>{infos.user}</p>
+                <div>
+                  <p>Dia:</p>
+                  <p>{diaSelect}</p>
+                </div>
+              </div>
+              <div className={style.info2}>
+                <div>
+                  {infos.servico}
+                </div>
+                  <p>Horario:</p>
+                  <p>{horarioSelect}</p>
+                  
+              </div>
+            </div>
+          </div>
+          <p>Deseja confirmar?</p>
         </MsgModal> : null}
       </>
     )

@@ -4,7 +4,7 @@ import Botao from '../../componentsReutilizacao/botaoVazio/Botao'
 
 import style from './Style.module.css'
 import logo from '../../../assets/img/CloseByHomeLogo.png'
-import { Link,animateScroll as scroll }  from "react-scroll";
+import { Link }  from "react-scroll";
 
 const Navbar = () => {
   console.log(window.window.pageYOffset);

@@ -15,7 +15,7 @@ const MsgModal = (props) => {
           {props.children}
         </div>
         <div className={style.footer}>
-          <BotaoVazio text="Cancelar" cor="azul" estilo={{fontSize: "1.2rem"}}/>
+          <BotaoVazio text="Cancelar" cor="azul" funcao={props.fechar} estilo={{fontSize: "1.2rem"}}/>
           <BotaoCheio text="Confirmar" cor="azul" estilo={{fontSize: "1.2rem"}}/>
         </div>
       </div>

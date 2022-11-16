@@ -28,7 +28,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: .2em .2em .5em rgb(110, 110, 110);
+  box-shadow: .2em .2em .5em #6e6e6e;
   cursor: pointer;
 }
 .mais:hover{
