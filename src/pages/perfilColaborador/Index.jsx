@@ -3,9 +3,10 @@ import { useState } from 'react';
 import Sidebar from '../../components/componentsPaginas/sidebarColaborador/Index';
 import Home from '../../components/PaginasColaborador/inicial/Index';
 import ConfServico from '../../components/PaginasColaborador/ConfServico/Index';
-import Agenda from '../../components/PaginasPerfil/agenda/Index';
+import Agenda from '../../components/PaginasColaborador/agenda/Index';
 import Historico from '../../components/PaginasPerfil/historico/Index';  
 import Dashboard from '../../components/PaginasColaborador/dashboard/Index';
+import Perfil from '../../components/PaginasPerfil/perfil/Index';
 
 import style from './Style.module.css';
 
@@ -25,6 +26,7 @@ const PerfilColaborador = () => {
       { pagina === "agenda" ? <Agenda pagina={ renderizarPagina }/> : ""}
       { pagina === "historico" ? <Historico pagina={ renderizarPagina }/> : "" }
       { pagina === "dashboard" ? <Dashboard pagina={ renderizarPagina }/> : "" }
+      { pagina === "perfil" && <Perfil/> }
     </main>
   )
 }

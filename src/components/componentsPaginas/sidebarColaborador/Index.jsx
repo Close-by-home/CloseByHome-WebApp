@@ -15,7 +15,7 @@ const Sidebar = (props) => {
             Inicio
           </li>
           <li onClick={() => props.pagina("confServico")} className={ props.estado === "confServico" ? style.select : "" }>
-            Configurar <br/> Serviços
+            Config Serviços
           </li>
           <li onClick={() => props.pagina("agenda")} className={ props.estado === "agenda" ? style.select : "" }>
             Agenda
@@ -30,10 +30,10 @@ const Sidebar = (props) => {
       </nav>
       <div className={ style.terminoNav }>
         <ul>
-          <Link to='/' className={ style.link }>
           <Link to='/perfil' className={ style.link }>
             <li>Conta Cliente</li>
           </Link>
+          <Link to='/' className={ style.link }>
             <li>Sair</li>
           </Link>
         </ul>

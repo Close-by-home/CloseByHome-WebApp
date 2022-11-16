@@ -1,6 +1,6 @@
 import style from './Style.module.css';
 
-import menosIcon from '../../../assets/icons/icon-menos.png';
+import menosIcon from '../../../assets/icons/excluir_horario.png';
 
 
 const ListaHorario = (props) => {

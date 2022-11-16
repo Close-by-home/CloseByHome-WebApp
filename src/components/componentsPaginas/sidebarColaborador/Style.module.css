@@ -82,8 +82,8 @@
   .link:nth-child(1) li::before{
     background-image: url("../../../assets/icons/sidebarIcons/contaServiço.png");
   }
-  .link li::before{
-    background-image: url("../../../assets//icons//sidebarIcons/sair.png");
+  .link:nth-child(2) li::before{
+    background-image: url("../../../assets/icons/sidebarIcons/sair.png");
   }
 
  

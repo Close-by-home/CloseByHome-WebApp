@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import agenda from '../../../Data/agenda';
 import Calendario from '../../ComponentsBibliotecas/calendario/Index';
 import maisIcon from '../../../assets/icons/icon-mais.png';
 import menosIcon from '../../../assets/icons/icon-menos.png';
+import addHorario from '../../../assets/icons/addHorario.png';
 import relogioIcon from '../../../assets/icons/relogio.png';
 
 import TituloTelas from '../../componentsReutilizacao/tituloTelas/Index';
@@ -19,9 +19,14 @@ import style from './Style.module.css';
 
 const ConfServico = (props) => {
 
-  const horarios = [
-    "09 : 00 - 10 : 00"
-  ]
+  const [horarios, setHorarios] = useState([
+    "09 : 00 - 10 : 00",
+    "09 : 00 - 10 : 00",
+    "09 : 00 - 10 : 00",
+    "09 : 00 - 10 : 00",
+    "09 : 00 - 10 : 00",
+
+  ])
 
   const dias = [
     "Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira",
@@ -52,7 +57,7 @@ const ConfServico = (props) => {
       <div className={style.servicos}>
         <div className={style.acharServicos}>
           <div className={style.filtrosDias}>
-            <p>Tipos de serviços oferecidos:</p>
+            <h2>Tipos de serviços oferecidos:</h2>
             <div className={style.botaoCont}>
               <div className={style.botao}>
                 <button onClick={() => botaoAdicionar()}>
@@ -69,7 +74,7 @@ const ConfServico = (props) => {
           </div>
 
           <div className={style.filtrosAgenda}>
-            <p>Tipos de serviços oferecidos:</p>
+            <h2>Seu Calendario:</h2>
             <div className={style.Calendario}>
               <Calendario>
               </Calendario>
@@ -91,35 +96,33 @@ const ConfServico = (props) => {
 
 
           <div className={style.conteudoEdit}>
-            <div className={style.d}></div>
-            <p>De</p>
+            <div className={style.d}>
+              <p>De</p>
+            </div>
             <div className={style.horario}>
               <p>09:00</p>
               <img src={relogioIcon} />
             </div>
-
-
-
-            <div className={style.a}></div>
-            <p>a</p>
+            <div className={style.a}>
+              <p>a</p>
+            </div>
             <div className={style.horario2}>
               <p>10:00</p>
               <img src={relogioIcon} />
             </div>
             <button onClick={() => botaoAdicionarHorario()}>
-              <img className={style.imgMais} src={maisIcon} alt="" />
+              <img className={style.imgMais} src={addHorario} alt="" />
             </button>
-
           </div>
-          <div>
+
+          <div className={style.listaHorario}>
             {horarios.map((horario) => {
               return <ListaHorario horario={horario} />
             })}
           </div>
 
           <div className={style.disponivel}>
-            <h3>Disponivel:</h3>
-
+            <h2>Disponivel:</h2>
 
             <div className={style.botaoDisponivel}>
               <label className={style.switch}>

@@ -1,6 +1,9 @@
 .servicos hr{
-  margin: 0;
-  background-color: #00A3FF;
+  height: 95%;
+  margin: 0 1em 0 0;
+  border-radius: 10em;
+  border: #0038FF solid .1em;
+  background-color: #0038FF;
 }
 
 .mainServico{
@@ -22,6 +25,7 @@
   .acharServicos{
     width: 49%;
     height: 100%;
+    /* background-color: pink; */
   }
   .filtrosAgenda{
     width: 100%;
@@ -40,11 +44,15 @@
   }
   .filtrosDias{
     width: 100%;
-    height: 30%;
+    height: 20%;
     display: flex;
     flex-direction: column;
     align-items:flex-start;
     /* background-color: pink; */
+  }
+  .filtrosDias h2{
+    margin: 0;
+    margin-top: .9em;
   }
   .filtros p{
     font-weight: 1000;
@@ -59,7 +67,7 @@
 
    .botao button{
     padding: .2em .3em;
-    background-color: #f9a83d;
+    background-color: #FF9F1C;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,18 +93,18 @@
     display: flex;
     margin-top:1.7em;
     align-items: flex-end;
-    margin-left: 2em;
+    margin-left: 1em;
     background-color:#FFBF69;
     height: 2em;
     align-items: center;
     border-radius: .3em;
     width: 8em;
-    
+    box-shadow: .2em .2em .2em #00000090;
   }
 
   .botaoRemover button{
     padding: .2em .3em;
-    background-color: #f9a83d;
+    background-color: #FF9F1C;
     display: flex;
     
     align-items: center;
@@ -121,34 +129,45 @@
   } 
   
   .mainDias{
+    width: 40%;
+    height: 95%;
     margin-left: 1em;
+    overflow-y: scroll;
+  }
+  .mainDias::-webkit-scrollbar-thumb {
+    background: #0038FF;
+  }
+  .mainDias h2{
+    margin: .9em 0 0 0;
   }
   .mainConteudo{
-    height: 6em;
+    height: 5em;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
     /* margin-top: 5em; */
   }
 
   .mainEditar{
-    margin-left: 1em;
     display: flex;
-    
+  }
+  .mainEditar h2{
+    margin: .3em 0 .5em 0;
   }
 
   .horario{
+    padding: 0 .7em;
     background-color: #0038FF;
-    width: 6em;
-    justify-content:space-evenly;
-    height: 2em;
+    border-radius: .3em;
+    box-shadow: .2em .2em .5em #00000099;
     display: flex;
     align-items: center;
-    margin-left: 1em;
+    margin-left: .5em;
     
   }
   .horario p{ 
-    margin-left: 0.5;
+    margin: 0 .5em 0 0;
     color: white;
   }
 
@@ -158,8 +177,9 @@
 
   .d{
     display: flex;
-    margin-left: 1em;
-    
+    align-items: center;
+    /* margin-left: 1em; */
+    /* background-color: pink;     */
   }
 
   .horario img{
@@ -170,16 +190,15 @@
 
   .horario2{
     background-color: #0038FF;
-    width: 6em;
-    justify-content:space-evenly;
-    height: 2em;
+    border-radius: .3em;
+    box-shadow: .2em .2em .5em #00000099;
     display: flex;
     align-items: center;
-    margin-left: 1em;
-    
+    margin-left: .5em;
+    padding: 0 .7em;
   }
   .horario2 p{ 
-    margin-left: 0.5;
+    margin: 0 .5em 0 0;
     color: white;
   }
 
@@ -189,7 +208,9 @@
 
   .a{
     display: flex;
-    margin-left: 1em;
+    margin-left: .5em;
+    /* background-color: pink; */
+    align-items: center;
   }
 
   .horario2 img{
@@ -218,14 +239,19 @@
   }
 
   .botaoConfirmar{
-  margin-top: 3em;
+  margin: 3em 0 1em 0;
   display: flex;
-  justify-content: end;
+  /* justify-content: flex-end; */
   width: 100%;
   }
 
-  .disponivel {
-    margin-left: 1em;
+  .disponivel h2{
+    margin-bottom: .3em;
+  }
+
+  .listaHorario{
+    margin-top: 1em;
+    padding: .5em 0;
   }
 
   .botaoDisponivel{
