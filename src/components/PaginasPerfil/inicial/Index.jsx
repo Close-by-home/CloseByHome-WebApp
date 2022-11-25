@@ -1,8 +1,11 @@
+import { useContext } from 'react';
+import { AppContext } from '../../../data/Store';
+
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import ServicosPerfil from '../../componentsPaginas/servicosPerfil/Index';
 import InfosTrabs from '../../componentsReutilizacao/infosTrabs/Index';
 
-import historico from '../../../Data/historico';
+import historico from '../../../data/historico';
 
 import style from './Style.module.css';
 import img1 from '../../../assets/img/servico1.png';
@@ -10,9 +13,11 @@ import img2 from '../../../assets/img/servico2.png';
 import img3 from '../../../assets/img/servico5.png';
 
 const Home = (props) => {
+  const { nome } = useContext(AppContext);
+
   return(
     <main className={ style.mainHome }>
-      <TitutloTelas texto="Bem vindo" destaque="Usuario" usuario="Usuario" pagina={ props.pagina }/>
+      <TitutloTelas texto="Bem vindo" destaque={ nome } pagina={ props.pagina }/>
       <div className={ style.servicos }>
         <h2>Procurando por um Serviço?</h2>
         <div className={ style.slideCont }>

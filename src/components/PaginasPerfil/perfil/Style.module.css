@@ -32,6 +32,7 @@
 }
 .img img{
   width: 100%;
+  border-radius: 9999px;
 }
 .editar{
   width: 25%;
@@ -45,6 +46,10 @@
   align-items: center;
   justify-content: center;
   border: solid .1em #0038FF;
+  cursor: pointer;
+}
+.editar:hover{
+  background-color: #007ac0;
 }
 .editar img{
   width: 70%;
@@ -79,7 +84,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+.btnEdit:hover{
+  background-color: #007ac0;
 }
 .btnEdit img{
   width: 70%;
+}
+.contModal{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.enviarArq{
+  width: 70%;
+  height: 10em;
+  border: dashed .2em #FF9F1C;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FF9F1C;
+  font-weight: bold;
+  margin: 1em;
+}
+.enviarArq label{
+  cursor: pointer;
+}
+.hoverArq{
+  background-color: #c7c7c7;
+  border-color: #ffb144;  
 }

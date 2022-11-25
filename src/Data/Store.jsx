@@ -7,8 +7,8 @@ const initialState = {
     codigoDoCondominio: "#DJTIE3445MFDS2",
     email: "felipe@gmail.com",
     numero: "11 951043020",
-    img: "",
-    servico: true
+    img: "https://cdn-icons-png.flaticon.com/512/1361/1361728.png",
+    servico: false
 }
 
 export const AppContext = createContext(initialState);
@@ -22,27 +22,27 @@ const Store = (props) => {
             [key]: value
         })
     }
-
+    
     return (
         <AppContext.Provider value={{
-            nome: state.nome, 
+            nome: state.nome,
             bloco: state.bloco,
             apartamento: state.apartamento,
-            códigoDoCondominio: state.códigoDoCondominio,
+            codigoDoCondominio: state.codigoDoCondominio,
             email: state.email,
             numero: state.numero,
             img: state.img,
             servico: state.servico,
-            setNome: t => updateState('nome', t),
-            setBloco: t => updateState('bloco', t),
-            setApartamento: t => updateState('apartamento', t),
-            setCodigoDoCondominio: t => updateState('codigoDoCondominio', t),
-            setEmail: t => updateState('email', t),
-            setNumero: t => updateState('numero', t),
-            setImg: t => updateState('img', t),
-            setServico: b => updateState('servico', b)
+            setNome: (n) => updateState("nome", n),
+            setBloco: (b) => updateState("bloco", b),
+            setApartamento: (a) => updateState("apartamento", a),
+            setCodigoDoCondominio: (c) => updateState("codigoDoCondominio", c),
+            setEmail: (e) => updateState("email", e),
+            setNumero: (n) => updateState("numero", n),
+            setImg: (i) => updateState("img", i),
+            setServico: (s) => updateState("servico", s)
         }}>
-         {props.children} 
+            {props.children} 
         </AppContext.Provider>
         
     )

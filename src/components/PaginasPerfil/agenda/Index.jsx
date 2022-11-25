@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import agenda from '../../../Data/agenda';
+import agenda from '../../../data/agenda';
 
 import Calendario from '../../ComponentsBibliotecas/calendario/Index';
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
@@ -51,7 +51,7 @@ const Agenda = (props) => {
       <TitutloTelas texto="Veja sua" destaque="agenda!" usuario="Usuario" pagina={ props.pagina }/>
       <div className={ style.paginaAgenda }>
         <div className={style.calendario}>
-          <Calendario dia={pegarDia}/>
+          <Calendario dia={pegarDia} folgaDias={[]}/>
         </div>
         <div className={ style.agendados }>
           <fieldset className={ style.servicosAgendados }>

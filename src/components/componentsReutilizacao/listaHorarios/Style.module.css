@@ -3,7 +3,7 @@
 }
 
 .conteudoLista + .conteudoLista{
-  margin-top: .5em;
+  margin-top: .3em;
 }
 
 .conteudoLista button{
@@ -12,9 +12,8 @@
     display: flex;
     cursor: pointer;
     border: none;
-    border-radius:.3em; 
+    border-radius: .3em; 
     box-shadow: .2em .2em .3em #00000080;
-    margin-left: 1em;
     margin-right: 1em;
   }
 

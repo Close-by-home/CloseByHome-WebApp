@@ -1,0 +1,29 @@
+.notificacao{
+  position: absolute;
+  bottom: 1em; right: 1em;
+  border-radius: .3em;
+  padding: 1em;
+  animation: aparecer 4s linear;
+}
+
+.verde{
+  background-color: #7AE65C;
+  border: solid #43E017 .2em;
+}
+
+.laranja{
+  background-color: #F7C04A;
+  border: solid #F5A900 .2em;
+}
+
+.vermelho{
+  background-color: #E00B00;
+  border: solid #E64D45 .2em;
+}
+
+@keyframes aparecer {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}

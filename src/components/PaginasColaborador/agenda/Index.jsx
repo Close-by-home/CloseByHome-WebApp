@@ -1,16 +1,12 @@
-import { useState, useEffect } from 'react';
-
-import agenda from '../../../Data/agenda';
+import { useState } from 'react';
 
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import InfosAgenda from '../../componentsReutilizacao/infosAgenda/Index';
-import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 import Calendario from '../../ComponentsBibliotecas/calendario/Index';
 
 import style from './Style.module.css'
 
 const Agenda = (props) => {
-  const [data, setData] = useState()
   const [servicos, setServicos] = useState([]);
 
   function diasTrab(dataServ) {
@@ -40,7 +36,7 @@ const Agenda = (props) => {
       <TitutloTelas texto="Veja sua" destaque="agenda!" usuario="Usuario" pagina={ props.pagina }/>
       <div className={ style.paginaAgenda }>
         <div className={style.calendario}>
-         <Calendario/>
+         <Calendario folgaDias={[]}/>
         </div>
         <div className={ style.agendados }>
           <fieldset className={ style.servicosAgendados }>

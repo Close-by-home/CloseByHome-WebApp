@@ -1,7 +1,7 @@
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import InfosTrabs from '../../componentsReutilizacao/infosTrabs/Index';
 
-import historico from '../../../Data/historico';
+import historico from '../../../data/historico';
 
 import style from './Style.module.css';
 
