@@ -14,10 +14,11 @@ const MsgModal = (props) => {
         <div className={style.corpo}>
           {props.children}
         </div>
-        <div className={style.footer}>
-          <BotaoVazio text="Cancelar" cor="azul" funcao={props.fechar} estilo={{fontSize: "1.2rem"}}/>
-          <BotaoCheio text="Confirmar" cor="azul" estilo={{fontSize: "1.2rem"}}/>
-        </div>
+        {!props.botoes ? 
+          <div className={style.footer}>
+            <BotaoVazio text="Cancelar" cor="azul" funcao={props.fechar} estilo={{fontSize: "1.2rem"}}/>
+            <BotaoCheio text="Confirmar" cor="azul" funcao={props.confirmar} estilo={{fontSize: "1.2rem"}}/>
+          </div> : null}
       </div>
     </div>
   )

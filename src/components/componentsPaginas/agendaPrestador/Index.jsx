@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Calendario from '../../ComponentsBibliotecas/calendario/Index'; 
 import ButtonCheio from '../../componentsReutilizacao/botaoCheio/Botao';
-import MsgModal from '../../modals/modalServico/Index';
+import MsgModal from '../../modals/msgModal/Index';
 
 import style from './Style.module.css'
 import notaUp from '../../../assets/icons/estrelaCheia.png';
@@ -122,7 +122,7 @@ const AgendaPresador = ({ infos }) => {
       </div>
       <div className={style.calendario}>
         <p>Calendario do Prestador</p>
-        <Calendario dia={pegarDia}/>
+        <Calendario dia={pegarDia} folgaDias={[]} passado={true}/>
       </div>
       {diaSelect ? mostrarHorario() : ''}
     </div>

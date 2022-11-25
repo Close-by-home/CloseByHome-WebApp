@@ -1,26 +1,33 @@
 import { useState, useContext } from 'react';
-import { AppContext } from '../../../Data/Data';
+import { AppContext } from '../../../data/Store';
+import axios from 'axios';
 
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import InputPerfil from '../../componentsPaginas/inputPerfil/Index';
 import Botao from '../../componentsReutilizacao/botaoCheio/Botao';
-import MsgModal from '../../modals/modalServico/Index';
+import MsgModal from '../../modals/msgModal/Index';
+import Notificacao from '../../modals/notificacao/Index';
 
 import style from './Style.module.css';
 import editar from '../../../assets/icons/editar.png';
-import imgPerfil from '../../../assets/img/users/imgPerfil.png';
 
 const Perfil = () => {
-  const { nome, bloco, apartamento, codigoDoCondominio, email, numero, servico} = useContext(AppContext);
+  const { nome, bloco, apartamento, codigoDoCondominio, email, numero, servico, img, setServico, setEmail, setNumero, setImg } = useContext(AppContext);
   
   const [valorEmail, setValorEmail] = useState(email);
   const [editEmail, setEditEmail] = useState(true);
   const [valorNumero, setValorNumero] = useState(numero);
   const [editNumero, setEditNumero] = useState(true);
-  const [modal, setModal] = useState(false)
-  
+  const [modalServico, setModalServico] = useState(false);
+  const [modalImg, setModalImg] = useState(false);
+  const [novaClass, setNovaClass] = useState("");
+  const [msg, setMsg] = useState("");
+  const [cor, setCor] = useState("");
+  const [notificacao, setNotificacao] = useState(false)
+
   function mudarEmail(value) {
     setValorEmail(value)
+    setEmail(value);
   }
 
   function sentEmail(value) {
@@ -31,6 +38,7 @@ const Perfil = () => {
 
   function mudarNumero(value) {
     setValorNumero(value)
+    setNumero(value);
   }
 
   function sentNumero(value) {
@@ -39,20 +47,78 @@ const Perfil = () => {
     }
   }
 
+  function ativarServico() {
+    setServico(!servico);
+    setModalServico(!modalServico);
+  }
+
+  async function mudarImg(arq) {
+    console.log(arq)
+    const formData = new FormData();
+    formData.append("image", arq)
+    const config = {
+      headers: {
+        Authorization: 'Client-ID 852865f54a814b6'
+      }
+    }
+    await axios.post('https://api.imgur.com/3/image/', formData, config)
+    .then((res) => {
+      setMsg("Imagem Atualizada com sucesso!")
+      setCor("verde")
+      setImg(res.data.data.link)
+    }).catch((err)=> {
+      setCor("laranja")
+      setMsg("Ops! Algo deu errado, tenten de novo mais tarde!")
+    })
+    setModalImg(false)
+    setNotificacao(true)
+    const timer = setTimeout(() => setNotificacao(false), 4000)
+    return () => clearTimeout(timer);
+  }
+
+  function hoverArq(e) {
+    e.preventDefault();
+    setNovaClass("hoverArq");
+  }
+
+  function hoverLeaveArq(e) {
+    e.preventDefault();
+    setNovaClass("");
+
+  }
+
+  function dropArq(e) {
+    e.preventDefault();
+    setNovaClass("");
+    mudarImg(e.dataTransfer.files[0]);
+  }
+
   return(
     <main className={ style.perfil }>
-      {modal ? 
-      <MsgModal titulo="Ativar conta" fechar={() => setModal(false)}>
+      {modalServico ? 
+      <MsgModal titulo="Ativar conta" fechar={() => setModalServico(false)} confirmar={() => ativarServico()}>
         <p>Você tem certeza que deseja ativar sua conta de serviço?</p>
       </MsgModal> : null}
+      {modalImg ? 
+      <MsgModal titulo="Mudar imagem de perfil" fechar={() => setModalImg(false)} botoes={true}>
+        <div className={style.contModal} onDrop={(e) => dropArq(e)} onDragOver={(e) => hoverArq(e)} onDragLeave={(e) => hoverLeaveArq(e)}>
+          <div className={`${style.enviarArq} ${style[novaClass]}`} >
+            <input style={{display: "none"}} type="file" id="arqImg" onChange={(e) => mudarImg(e.target.files[0])}/>
+            <label htmlFor="arqImg">Arreste a sua imagem aqui</label>
+          </div>
+        </div>
+      </MsgModal> : null}
+      {notificacao ?
+        <Notificacao msg={msg} cor={cor}/> : null
+      }
       <TitutloTelas destaque="Perfil" />
       <div className={style.container}>
         <div className={style.foto}>
           <div className={style.fotoPerfil}>
             <div className={style.img}>
-              <img src={imgPerfil} alt="" />
+              <img src={img} alt="" />
             </div>
-            <div className={style.editar}>
+            <div className={style.editar} onClick={() => setModalImg(true)}>
               <img src={editar} alt="" />
             </div>
           </div>
@@ -77,9 +143,10 @@ const Perfil = () => {
               <img src={editar} alt="" />
             </div>
           </div>
-          {!servico ? 
-            <Botao text="Ativar conta serviço" cor="azul" funcao={() => setModal(true)} estilo={{marginTop: "1em"}}/> : 
-            <Botao text="Desativar conta serviço" cor="azul" funcao={() => setModal(true)} estilo={{marginTop: "1em"}}/>}
+          {servico ? 
+            null :
+            <Botao text="Ativar conta serviço" cor="azul" funcao={() => setModalServico(true)} estilo={{marginTop: "1em"}}/>
+          }
         </div>
       </div>
     </main>

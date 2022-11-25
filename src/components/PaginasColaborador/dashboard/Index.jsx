@@ -2,7 +2,7 @@ import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import GrafigoBar from '../../ComponentsBibliotecas/graficos/GraficoBar';
 import GraficoLinha from '../../ComponentsBibliotecas/graficos/GraficoLine';
 
-import dados from '../../../Data/qtdServicos';
+import dados from '../../../data/qtdServicos';
 
 import style from './Style.module.css';
 

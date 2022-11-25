@@ -10,7 +10,7 @@ import seta from '../../../assets/icons/setaSelect.png';
 import lupa from '../../../assets/icons/pesquisaInput.png';
 import naoEncontrado from '../../../assets/img/servicoNaoEncontrado.png';
 
-import historico from '../../../Data/historico';
+import historico from '../../../data/historico';
 
 const Servico = (props) => {
   const [servico, setServico] = useState();

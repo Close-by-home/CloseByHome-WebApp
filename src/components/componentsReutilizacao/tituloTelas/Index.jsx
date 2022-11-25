@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContext } from '../../../data/Store';
 
 import Notificacao from '../../componentsPaginas/notificacao/Index';
 
 import style from './Style.module.css';
 import notificacaoVazio from '../../../assets/icons/notificacaoVazio.png';
 import notificacaoNova from '../../../assets/icons/notificacaoNova.png';
-import fotoPerfil from '../../../assets/img/users/imgPerfil.png';
 
 const TitutloTelas = (props) => {
+  const { img, nome } = useContext(AppContext);
+
   const [aparecer, setAparecer] = useState(false)
   const [notificacao, setNotificacao] = useState(["msg 1", "msg 2", "msg 3"])
 
@@ -22,14 +24,14 @@ const TitutloTelas = (props) => {
     <div className={ style.titulo }>
       <h2>{ props.texto }<span> { props.destaque }</span></h2>
       <div className={ style.perfil }>
-        <p>{ props.usuario }</p>
+        <p>{ nome }</p>
         <img 
           onClick={() => {setAparecer(!aparecer)}} 
           src={notificacao.length > 0 ? notificacaoNova : notificacaoVazio} 
           alt="notificação" 
         />
         <div onClick={() => props.pagina('perfil')} className={ style.imgPerfil }>
-          <img src={ fotoPerfil } alt="" />
+          <img src={ img } alt="" />
         </div>
       </div>
       {aparecer ? <div className={ style.notificacao }>
