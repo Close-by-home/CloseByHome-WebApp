@@ -78,12 +78,21 @@ const ConfServico = (props) => {
   }
   
   function tentarConfirmar() {
-    if(listaDias && servico && horarios) {
+    if(listaDias.length > 0 && servico && horarios.length > 0) {
       setModalConfirmar(true)
       return
     }
     setMsg("Existem campos ainda não preenchidos")
     setCor("laranja")
+    setNotificacao(true)
+    const timer = setTimeout(() => setNotificacao(false), 4000);
+    return () => clearTimeout(timer);
+  }
+
+  function configurarServico() {
+    setModalConfirmar(false);
+    setMsg("Serviço mudado com sucesso")
+    setCor("verde")
     setNotificacao(true)
     const timer = setTimeout(() => setNotificacao(false), 4000);
     return () => clearTimeout(timer);
@@ -127,7 +136,7 @@ const ConfServico = (props) => {
         </MsgModal> : null
       }
       {modalConfirmar ?
-        <MsgModal titulo={"Confirmar alterações"} fechar={() => setModalConfirmar(false)}>
+        <MsgModal titulo={"Confirmar alterações"} fechar={() => setModalConfirmar(false)} confirmar={() => configurarServico()}>
             <div className={style.configurar}>
               <h3>Deseja confirmar essas configurações do seu serviço?</h3>
               <p className={style.infoExemplo}>- Serviço oferecido: </p>
@@ -140,7 +149,7 @@ const ConfServico = (props) => {
                 {horarios.map((h) => {
                   return <li className={style.exemplo}>{h}</li>
                 })}
-              <p className={style.infoExemplo}>- Disponivel: </p>
+              <p className={style.infoExemplo}>- {disponivel ? "Disponivel" : "Indisponivel"}</p>
             </div>
         </MsgModal> : null
       }
