@@ -27,7 +27,7 @@ const FormLogin = () => {
   }
 
   async function logar() {
-    const logar = await axios.get(`http://localhost:8080/usuario/logar/${CÓDIGO}/${EMAIL}/${SENHA}`)
+    const logar = await axios.post(`http://localhost:8080/usuario/logar`, {CÓDIGO:`${inputCódigo}`, EMAIL: `${inputEmail}`, SENHA: `${inputSenha}`})
     .then(res => {
       console.log(res.data)
       return res.data; 

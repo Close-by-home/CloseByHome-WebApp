@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import agenda from '../../../data/agenda';
+import agenda from '../../../Data/agenda';
 
 import Calendario from '../../ComponentsBibliotecas/calendario/Index';
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';

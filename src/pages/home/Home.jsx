@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { servico1, servico2 } from '../../data/servicos';
-import pesquisa from '../../data/pesquisa';
+import { servico1, servico2 } from '../../Data/servicos';
+import pesquisa from '../../Data/pesquisa';
 
 import Navbar from '../../components/componentsPaginas/navbar/Navbar';
 import BotaoCheio from '../../components/componentsReutilizacao/botaoCheio/Botao';

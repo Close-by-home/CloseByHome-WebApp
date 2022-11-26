@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import { AppContext } from '../../../data/Store';
+import { AppContext } from '../../../Data/Store';
 
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import ServicosPerfil from '../../componentsPaginas/servicosPerfil/Index';
 import InfosTrabs from '../../componentsReutilizacao/infosTrabs/Index';
 
-import historico from '../../../data/historico';
+import historico from '../../../Data/historico';
 
 import style from './Style.module.css';
 import img1 from '../../../assets/img/servico1.png';
