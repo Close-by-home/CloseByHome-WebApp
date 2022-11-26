@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { AppContext } from '../../../data/Store';
+import { AppContext } from '../../../Data/Store';
 import axios from 'axios';
 
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';

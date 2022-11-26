@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import style from './Style.module.css'
 
-import FormRegistro from '../../components/componentsPaginas/formRegistro/Index';
+import FormEnviarArq from '../../components/componentsPaginas/formEnviarArq/Index';
 
 import logo from '../../assets/img/CloseByHomeLogo2.png';
 import iconVoltar from '../../assets/icons/botaoVoltar.png';
 
-const Registro = () => {
+const RegistroEnviarArq = () => {
   return (
     <>
       <main className={style.main}>
@@ -22,8 +22,7 @@ const Registro = () => {
         </div>
         <div className={style.form}>
           
-         
-        <FormRegistro></FormRegistro>
+         <FormEnviarArq></FormEnviarArq>
         
         </div>
 
@@ -33,4 +32,4 @@ const Registro = () => {
 
 }
 
-export default Registro;
+export default RegistroEnviarArq;

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import axios from 'axios';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
@@ -29,7 +31,22 @@ const FormModSenha = () => {
     function inputRepSenha(event) {
         setREPSENHA(event.target.value);
         console.log(REPSENHA);
-    };
+    }
+    
+    
+    async function atualizarSenha() {
+      const atualizarSenha = await axios.put(`http://localhost:8080/usuario/atualizar-senha-esquecida
+      /${CODCOND}/${EMAIL}/${NOVASENHA}/${REPSENHA}`)
+      .then(res => {
+        console.log(res.data)
+        return res.data; 
+      }).catch(err => {
+        console.log(err)
+      })
+  
+      atualizarSenha ? Navigate('/login') : console.log(atualizarSenha)
+  }
+    
 
     
       return (
@@ -46,7 +63,7 @@ const FormModSenha = () => {
         <InputLabel text="Repita a senha"  type ="number" valor={inputRepSenha} />
         
 
-        <BotaoCheio text="Mudar Senha" cor="azul" />  
+        <BotaoCheio text="Mudar Senha" cor="azul" funcao={atualizarSenha} />  
         </div>
       )
 }

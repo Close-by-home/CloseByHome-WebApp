@@ -11,7 +11,7 @@ import TituloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 import MsgModal from '../../modals/msgModal/Index';
 
-import { dias, tagsServicos } from '../../../data/configurarServ';
+import { dias, tagsServicos } from '../../../Data/configurarServ';
 
 import style from './Style.module.css';
 

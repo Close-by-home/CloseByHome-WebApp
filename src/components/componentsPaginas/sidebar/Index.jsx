@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import style from './Style.module.css';
 import logo from '../../../assets/img/CloseByHomeLogo2.png';
 
-import { AppContext } from '../../../data/Store';
+import { AppContext } from '../../../Data/Store';
 
 const Sidebar = (props) => {
   const { servico } = useContext(AppContext);

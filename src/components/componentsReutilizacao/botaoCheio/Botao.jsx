@@ -1,6 +1,7 @@
 import style from './Style.module.css'
 
 const Botao = ({ text, cor, funcao, estilo }) => {
+
   return(
     <div>
       <button 
