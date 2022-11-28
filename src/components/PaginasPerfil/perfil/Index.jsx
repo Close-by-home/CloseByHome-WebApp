@@ -53,23 +53,27 @@ const Perfil = () => {
   }
 
   async function mudarImg(arq) {
-    console.log(arq)
-    const formData = new FormData();
-    formData.append("image", arq)
-    const config = {
-      headers: {
-        Authorization: 'Client-ID 852865f54a814b6'
+    if(arq.type.search("jpeg") > 0 || arq.type.search("png") > 0) {
+      const formData = new FormData();
+      formData.append("image", arq)
+      const config = {
+        headers: {
+          Authorization: 'Client-ID 852865f54a814b6'
+        }
       }
-    }
-    await axios.post('https://api.imgur.com/3/image/', formData, config)
-    .then((res) => {
-      setMsg("Imagem Atualizada com sucesso!")
-      setCor("verde")
-      setImg(res.data.data.link)
-    }).catch((err)=> {
+      await axios.post('https://api.imgur.com/3/image/', formData, config)
+      .then((res) => {
+        setMsg("Imagem Atualizada com sucesso!")
+        setCor("verde")
+        setImg(res.data.data.link)
+      }).catch((err)=> {
+        setCor("laranja")
+        setMsg("Ops! Algo deu errado, tenten de novo mais tarde!")
+      })
+    } else {
       setCor("laranja")
-      setMsg("Ops! Algo deu errado, tenten de novo mais tarde!")
-    })
+      setMsg("Infelizmente esse tipo de arquivo não é suportado")
+    }
     setModalImg(false)
     setNotificacao(true)
     const timer = setTimeout(() => setNotificacao(false), 4000)

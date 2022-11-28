@@ -1,6 +1,6 @@
 .input input{
   width: 30em;
-  height: 3em;
+  height: 2.5em;
   background-color: #f1f1f1;
   border: 0.1em solid #FF9F1C;
   border-radius: .5em;
@@ -11,6 +11,4 @@
 }
 .input label{
   font-weight: 600;
-}
-.input + .input{
 }

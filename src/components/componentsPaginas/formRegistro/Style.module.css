@@ -18,7 +18,7 @@
 
 .passos{
 display: flex;
-margin-bottom: 1em;
+margin-bottom: .5em;
 }
 
 .bolinhaSelecionada{
@@ -37,8 +37,10 @@ margin-bottom: 1em;
 .linhas{
   margin-left: .1em;
   margin-right: .1em;
+  font-size: 2rem;
   display: flex;
-  color: blue;
+  font-weight: 300;
+  color: #0038FF;
   align-items: center;
 }
 
