@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext} from 'react';
 
 import style from './Style.module.css';
 import axios from 'axios';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { AppContext } from '../../../Data/Store';
+import { Navigate} from 'react-router-dom';
 
 
 import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 
 const FormRegistro = () => {
-
+  
+  // const [setInfoRegistro] = useContext(AppContext);
   const [CNPJ, setCNPJ] = useState("");
   const [CEP, setCEP] = useState("");
   const [TELEFONE, setTELEFONE] = useState("");
@@ -17,8 +19,10 @@ const FormRegistro = () => {
   const [EMAIL, setEMAIL] = useState("");
   const [QTDBLOCOS, setQtdBlocos] = useState("");
   const [SINDICO, setSindico] = useState("");
-  const [passos, setPassos] = useState(1)
-
+  const [BOLINHA1, setBolinha1] = useState(true);
+  const [BOLINHA2, setBolinha2] = useState(false);
+  const [BOLINHA3, setBolinha3] = useState(false);
+  
   function inputCnpj(event) {
     setCNPJ(event.target.value);
     console.log(CNPJ)
@@ -51,6 +55,8 @@ const FormRegistro = () => {
 
 
   async function cadastrar() {
+    BOLINHA1 = false;
+    BOLINHA2 = true;
     const condominio = {
       CEP: CEP,
       CNPJ: CNPJ,
@@ -71,7 +77,10 @@ const FormRegistro = () => {
         console.log(err)
       })
 
-    // cadastrar ? Navigate('/RegistroEnviarArq') : console.log(cadastrar);
+      // setInfoRegistro ({cnpj: CNPJ, cep: CEP, telefone: TELEFONE, email: EMAIL, 
+      //   sindico: SINDICO, qtdBlocos: QTDBLOCOS, numero: NUMERO})
+
+      Navigate('/RegistroEnviarArq');
   }
   return (
 
@@ -80,7 +89,7 @@ const FormRegistro = () => {
       <p>Passos:</p>
       <div className={style.passos}>
 
-        <div className={style.bolinha} >
+        <div className={ style.bolinhaSelecionada } >
           1
         </div>
         <div className={style.linhas}>----</div>
