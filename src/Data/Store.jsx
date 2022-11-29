@@ -1,12 +1,12 @@
 import { createContext, useState } from "react";
 
 const initialState = {
-    nome: "Felipe Brito Andrade",
-    bloco: "2b",
-    apartamento: "33",
-    codigoDoCondominio: "#DJTIE3445MFDS2",
-    email: "felipe@gmail.com",
-    numero: "11 951043020",
+    nome: "",
+    bloco: "",
+    apartamento: "",
+    codigoDoCondominio: "",
+    email: "",
+    numero: "",
     img: "https://cdn-icons-png.flaticon.com/512/1361/1361728.png",
     servico: false
 }
@@ -37,7 +37,7 @@ const Store = (props) => {
             setBloco: (b) => updateState("bloco", b),
             setApartamento: (a) => updateState("apartamento", a),
             setCodigoDoCondominio: (c) => updateState("codigoDoCondominio", c),
-            setEmail: (e) => updateState("email", e),
+            setEmail: (m) => updateState("email", m),
             setNumero: (n) => updateState("numero", n),
             setImg: (i) => updateState("img", i),
             setServico: (s) => updateState("servico", s)

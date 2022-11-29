@@ -96,7 +96,6 @@ const Perfil = () => {
     setNovaClass("");
     mudarImg(e.dataTransfer.files[0]);
   }
-
   return(
     <main className={ style.perfil }>
       {modalServico ? 
