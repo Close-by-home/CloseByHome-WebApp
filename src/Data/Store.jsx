@@ -8,7 +8,10 @@ const initialState = {
     email: "",
     numero: "",
     img: "https://cdn-icons-png.flaticon.com/512/1361/1361728.png",
-    servico: false
+    servico: false,
+    infoRegistro: {}
+
+
 }
 
 export const AppContext = createContext(initialState);
@@ -33,6 +36,8 @@ const Store = (props) => {
             numero: state.numero,
             img: state.img,
             servico: state.servico,
+            infoRegistro: state.infoRegistro,
+            setInfoRegistro: (i) => updateState("infoRegistro", i),
             setNome: (n) => updateState("nome", n),
             setBloco: (b) => updateState("bloco", b),
             setApartamento: (a) => updateState("apartamento", a),

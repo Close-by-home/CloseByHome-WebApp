@@ -9,6 +9,7 @@ import Pagina404 from './pages/paginaErro404/Index';
 import PerfilColaborador from './pages/perfilColaborador/Index';
 import Store from './Data/Store';
 import RegistroEnviarArq from './pages/registroEnvioArq/Index';
+import RegistroConferirDados from './pages/confirmarDados/Index';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/Perfil" element={<PerfilMorador/>}/>
           <Route exact path="/PerfilColaborador" element={<PerfilColaborador/>}/>
           <Route exact path="/RegistroEnviarArq" element={<RegistroEnviarArq/>}/>
+          <Route exact path="/RegistroConferirDados" element={<RegistroConferirDados/>}/>
           <Route path="*" element={<Pagina404/>}/>
         </Routes>
       </Router>

@@ -1,0 +1,77 @@
+.divForm{
+    display:flex; 
+    width:100%; 
+    justify-content: space-between; 
+    align-items: center;
+  }
+  
+  .bolinha{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    background: #FFBF69;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  
+  .passos{
+  display: flex;
+  margin-bottom: 1em;
+  }
+  
+  .bolinhaSelecionada{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    background: #FF9F1C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  
+  
+  
+  .linhas{
+    margin-left: .1em;
+    margin-right: .1em;
+    display: flex;
+    color: blue;
+    align-items: center;
+  }
+  
+  .tudo p{
+    color: #FF9F1C;
+    font-weight: 800;
+  }
+
+  .enviarArq{
+    width: 25em;
+    height: 10em;
+    border: dashed .1em #0038FF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF9F1C;
+    
+    margin: 1em;
+  }
+  .enviarArq label{
+    cursor: pointer;
+  }
+  .hoverArq{
+    background-color: #c7c7c7;
+    border-color: #ffb144;  
+  }
+
+  .tudo .textoArq{
+    color: rgba(0, 0, 0, 0.541);
+  }
+
+.botao{
+    display: flex;
+    justify-content: center;
+}
