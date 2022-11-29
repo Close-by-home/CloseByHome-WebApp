@@ -10,12 +10,18 @@ import axios from 'axios';
 
 const FormEnviarArq = () => {
 
+  const [msg, setMsg] = useState("");
+
     async function EnviarArq(arq) {
+
+      if(arq.type.search("csv") > 0 || arq.type.search("xlsx") > 0) {
         console.log(arq)
         
-        await axios.post('')
-    
-        
+        await axios.post('')     
+      }
+      else{
+        setMsg("Infelizmente esse tipo de arquivo não é suportado")
+      }
       }
 
 return (
@@ -29,7 +35,7 @@ return (
         1
         </div>
       <div className={style.linhas}>----------</div>
-      <div className={style.bolinha}>
+      <div className={style.bolinhaSelecionada}>
         2
       </div>
       <div className={style.linhas}>----------</div>

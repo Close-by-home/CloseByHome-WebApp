@@ -14,6 +14,7 @@ import editar from '../../../assets/icons/editar.png';
 const Perfil = () => {
   const { nome, bloco, apartamento, codigoDoCondominio, email, numero, servico, img, setServico, setEmail, setNumero, setImg } = useContext(AppContext);
   
+  
   const [valorEmail, setValorEmail] = useState(email);
   const [editEmail, setEditEmail] = useState(true);
   const [valorNumero, setValorNumero] = useState(numero);
@@ -68,7 +69,7 @@ const Perfil = () => {
         setImg(res.data.data.link)
       }).catch((err)=> {
         setCor("laranja")
-        setMsg("Ops! Algo deu errado, tenten de novo mais tarde!")
+        setMsg("Ops! Algo deu errado, tente de novo mais tarde!")
       })
     } else {
       setCor("laranja")
