@@ -21,7 +21,7 @@ const Login = () => {
         </div>
       </div>
       <div className={ style.form }>
-        <FormLogin/>
+        <FormLogin />
       </div>
     </main>
   )
