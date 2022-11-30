@@ -11,7 +11,7 @@ import style from './Style.module.css';
 
 const FormLogin = () => {
   const navigate = useNavigate();
-  const { setBloco, setEmail, setNumero, setNome } = useContext(AppContext);
+  const { state, setState } = useContext(AppContext);
 
   const [EMAIL, setEMAIL] = useState("");
   const [SENHA, setSENHA] = useState("");
@@ -47,10 +47,13 @@ const FormLogin = () => {
     })
     .then(res => {
       console.log(res.data.bloco, res.data.email, res.data.telefone, res.data.nome)
-      setBloco(res.data.bloco);
-      setEmail(res.data.email);
-      setNumero(res.data.telefone);
-      setNome(res.data.nome); 
+      setState({
+        ...state,
+        bloco: res.data.bloco,
+        email: res.data.email,
+        telefone: res.data.telefone,
+        nome: res.data.nome
+      })
       return navigate('/perfil')
     }).catch(() => {
       setMsg("Usuario informado não encontrado");

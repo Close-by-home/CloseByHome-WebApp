@@ -37,15 +37,17 @@ const Store = (props) => {
             img: state.img,
             servico: state.servico,
             infoRegistro: state.infoRegistro,
-            setInfoRegistro: (i) => updateState("infoRegistro", i),
-            setNome: (n) => updateState("nome", n),
-            setBloco: (b) => updateState("bloco", b),
-            setApartamento: (a) => updateState("apartamento", a),
-            setCodigoDoCondominio: (c) => updateState("codigoDoCondominio", c),
-            setEmail: (m) => updateState("email", m),
-            setNumero: (n) => updateState("numero", n),
-            setImg: (i) => updateState("img", i),
-            setServico: (s) => updateState("servico", s)
+            setInfoRegistro: (string) => updateState("infoRegistro", string),
+            setNome: (string) => updateState("nome", string),
+            setBloco: (string) => updateState("bloco", string),
+            setApartamento: (string) => updateState("apartamento", string),
+            setCodigoDoCondominio: (string) => updateState("codigoDoCondominio", string),
+            setEmail: (string) => updateState("email", string),
+            setNumero: (string) => updateState("numero", string),
+            setImg: (string) => updateState("img", string),
+            setServico: (string) => updateState("servico", string),
+            // setAllInfos: setState()
+            state, setState
         }}>
             {props.children} 
         </AppContext.Provider>

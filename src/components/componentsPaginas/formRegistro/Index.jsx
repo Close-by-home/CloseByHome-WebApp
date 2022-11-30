@@ -1,9 +1,8 @@
-import { useState, useContext} from 'react';
+import { useState } from 'react';
 
 import style from './Style.module.css';
 import axios from 'axios';
-import { AppContext } from '../../../Data/Store';
-import { Navigate} from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 
 import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
@@ -11,7 +10,6 @@ import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 
 const FormRegistro = () => {
   
-  // const [setInfoRegistro] = useContext(AppContext);
   const [CNPJ, setCNPJ] = useState("");
   const [CEP, setCEP] = useState("");
   const [TELEFONE, setTELEFONE] = useState("");
@@ -19,9 +17,9 @@ const FormRegistro = () => {
   const [EMAIL, setEMAIL] = useState("");
   const [QTDBLOCOS, setQtdBlocos] = useState("");
   const [SINDICO, setSindico] = useState("");
-  const [BOLINHA1, setBolinha1] = useState(true);
-  const [BOLINHA2, setBolinha2] = useState(false);
-  const [BOLINHA3, setBolinha3] = useState(false);
+  const [bolinha1, setBolinha1] = useState(true);
+  const [bolinha2, setBolinha2] = useState(false);
+  const [bolinha3, setBolinha3] = useState(false);
   
   function inputCnpj(event) {
     setCNPJ(event.target.value);
@@ -55,18 +53,18 @@ const FormRegistro = () => {
 
 
   async function cadastrar() {
-    BOLINHA1 = false;
-    BOLINHA2 = true;
+    setBolinha1(false);
+    setBolinha2(true);
     const condominio = {
-      CEP: CEP,
-      CNPJ: CNPJ,
-      CODIGO: '012392',
-      EMAIL: EMAIL,
-      NUMERO: NUMERO,
-      QTDBLOCOS: QTDBLOCOS,
-      SINDICO: SINDICO,
-      TELEFONE: TELEFONE,
-      TELEFONESINDICO: '12331234151'
+      cnpj: CNPJ,
+      codigoCondominio: '012392',
+      cep: CEP,
+      telefone: TELEFONE,
+      numero: NUMERO,
+      quatidadeDeBlocos: QTDBLOCOS,
+      sindico: SINDICO,
+      emailSindico: EMAIL,
+      telefoneSindico: '12331234151'
     }
     console.log(condominio)
     await axios.post(`http://localhost:8080/condominio/cadastrar`, condominio)

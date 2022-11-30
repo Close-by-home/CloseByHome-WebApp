@@ -12,7 +12,7 @@ const ModSenha = () => {
             <>
               <main className={style.main}>
                 <div className={style.logo}>
-                  <Link to="/" className={style.voltar}>
+                  <Link to="/login" className={style.voltar}>
                     <div className={style.bolinha}>
                       <img src={iconVoltar} alt="voltar" />
                     </div>

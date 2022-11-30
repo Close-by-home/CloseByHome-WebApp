@@ -3,15 +3,17 @@ import { useState } from 'react';
 import Calendario from '../../ComponentsBibliotecas/calendario/Index'; 
 import ButtonCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 import MsgModal from '../../modals/msgModal/Index';
+import Notificacao from '../../modals/notificacao/Index';
 
 import style from './Style.module.css'
 import notaUp from '../../../assets/icons/estrelaCheia.png';
 import notaDown from '../../../assets/icons/estrelaVazia.png';
 
-const AgendaPresador = ({ infos }) => {
+const AgendaPresador = ({ infos, pagina }) => {
   const [horarioSelect, setHorarioSelect] = useState();
   const [diaSelect, setDiaSelect] = useState();
   const [modal, setModal] = useState(false);
+  const [notificacao, setNotificacao] = useState(false);
 
   let notaTemp = [0, 0, 0, 0, 0]
 
@@ -45,9 +47,19 @@ const AgendaPresador = ({ infos }) => {
     console.log("Dia:", diaSelect, "\nHorario:", horarioSelect);
   }
 
+  function confirmarServico() {
+    setNotificacao(true)
+    setTimeout(() => {
+      setNotificacao(false)
+      pagina("agenda")
+    }, 2000)
+    
+  }
+
   function mostrarHorario() {
     return(
       <>
+        {notificacao ? <Notificacao msg="Serviço registrado com sucesso" cor="verde"/> : null}
         <div className={style.horarios}>
           <p>Horários Disponiveis</p>
           <div className={style.listaHorarios}>
@@ -74,8 +86,9 @@ const AgendaPresador = ({ infos }) => {
           estilo={{fontSize: "1.3rem", padding: ".5em 1.3em", marginBottom: "1em"}}/> : null}
         </div>
         {modal ? 
-        <MsgModal fechar={() => setModal(false)} titulo="Teste">
-          <p>Foi selecionado este serviço:</p>
+        <MsgModal fechar={() => setModal(false)} titulo="Confirmar Serviço" confirmar={() => confirmarServico()}>
+          <div style={{textAlign: "center", fontWeight: "600"}}>
+          <p>Esse são as configurações do seu serviço:</p>
           <div className={style.cont}>
             <div className={style.card}>
               <div className={style.perfilModal} style={{backgroundImage: `url(${infos.imagem})`}}></div>
@@ -87,16 +100,18 @@ const AgendaPresador = ({ infos }) => {
                 </div>
               </div>
               <div className={style.info2}>
-                <div>
-                  {infos.servico}
+                <div className={style.listra}>
+                  <div></div>
+                  <p>{infos.servico}</p>  
                 </div>
-                  <p>Horario:</p>
+                  <p style={{fontWeight: "600"}}>Horario:</p>
                   <p>{horarioSelect}</p>
                   
               </div>
             </div>
           </div>
-          <p>Deseja confirmar?</p>
+          <p>Deseja confirmar?</p>  
+          </div>
         </MsgModal> : null}
       </>
     )

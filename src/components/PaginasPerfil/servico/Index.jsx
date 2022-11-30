@@ -23,7 +23,6 @@ const Servico = (props) => {
   }, [pesquisa])
 
   function selecionarServico(servico) {
-    console.log(servico)
     setServico(servico);
   }
 
@@ -71,7 +70,7 @@ const Servico = (props) => {
         <hr />
 
         {servico ?
-        <AgendaPrestador infos={servico}/>
+        <AgendaPrestador infos={servico} pagina={ props.pagina }/>
         :
         <div className={ style.mostrarServico }>
           <h2>Selecione um Serviço</h2>

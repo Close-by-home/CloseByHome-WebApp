@@ -103,18 +103,20 @@
 }
 .cont{
   width: 100%;
-  padding: 1em 0;
+  padding: 1em 0; 
   display: flex;
   justify-content: center;
 }
 .card{
-  width: 76%;
+  width: 78%;
   height: 6em;
   background-color: #00A3FF;
-  padding: 0 2%;
+  padding: 0 0 0 2%;
   border-radius: .5em;
   display: flex;
   align-items: center;
+  color: #f1f1f1;
+  text-align: start;
 }
 .perfilModal{
   width: 4.5em;
@@ -124,4 +126,44 @@
   border: .2em solid #FF9F1C;
   background-repeat: no-repeat;
   background-size: 100% ;
+}
+.info1{
+  width: 25%;
+  padding-left: 5%;
+  height: 100%;
+  /* background-color: pink; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+}
+.info1 div{
+  margin-top: 2%;
+}
+.info1 p:nth-child(1) {
+  font-weight: 600;
+}
+.info2{
+  width: 54%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.listra{
+  /* width: 90%; */
+  height: 25%;
+  color: #1f1f1f;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  background-color: #FFBF69;
+  display: flex;
+  align-items: center;
+  border-radius: .3em 0 0 .3em;
+}
+.listra div{
+  width: 7%;
+  height: 100%;
+  margin-right: 5%;
+  border-radius: .3em;
+  background-color: #FF9F1C;
 }
