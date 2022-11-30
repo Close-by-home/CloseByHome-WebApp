@@ -75,3 +75,16 @@
     display: flex;
     justify-content: center;
 }
+
+.informacoes{
+  height: 22em;
+  margin-top:.2em ;
+}
+.informacoes p{
+  color: black;
+}
+
+.informacoes span{
+  color: #ffb144;
+
+}

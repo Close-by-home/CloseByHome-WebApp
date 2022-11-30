@@ -7,9 +7,9 @@ import ModificarSenha from './pages/modificarSenha/Index';
 import PerfilMorador from './pages/PerfilMorador/Index';
 import Pagina404 from './pages/paginaErro404/Index';
 import PerfilColaborador from './pages/perfilColaborador/Index';
+import AdmCond from './pages/admCond/Index';
 import Store from './Data/Store';
-import RegistroEnviarArq from './pages/registroEnvioArq/Index';
-import RegistroConferirDados from './pages/confirmarDados/Index';
+
 
 function App() {
   return (
@@ -22,8 +22,7 @@ function App() {
           <Route exact path="/modificarSenha" element={<ModificarSenha/>}/>
           <Route exact path="/Perfil" element={<PerfilMorador/>}/>
           <Route exact path="/PerfilColaborador" element={<PerfilColaborador/>}/>
-          <Route exact path="/RegistroEnviarArq" element={<RegistroEnviarArq/>}/>
-          <Route exact path="/RegistroConferirDados" element={<RegistroConferirDados/>}/>
+          <Route exact path="/AdmCondominio" element={<AdmCond/>}/>
           <Route path="*" element={<Pagina404/>}/>
         </Routes>
       </Router>

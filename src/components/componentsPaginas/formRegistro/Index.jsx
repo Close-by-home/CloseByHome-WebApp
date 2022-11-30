@@ -8,8 +8,9 @@ import { Navigate} from 'react-router-dom';
 
 import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
+import { areDayPropsEqual } from '@mui/x-date-pickers/internals';
 
-const FormRegistro = () => {
+const FormRegistro = (props) => {
   
   // const [setInfoRegistro] = useContext(AppContext);
   const [CNPJ, setCNPJ] = useState("");
@@ -55,8 +56,8 @@ const FormRegistro = () => {
 
 
   async function cadastrar() {
-    BOLINHA1 = false;
-    BOLINHA2 = true;
+    setBolinha1(false);
+    setBolinha2(true);
     const condominio = {
       CEP: CEP,
       CNPJ: CNPJ,
@@ -68,6 +69,11 @@ const FormRegistro = () => {
       TELEFONE: TELEFONE,
       TELEFONESINDICO: '12331234151'
     }
+     
+    props.pagina("formEnviarArq");
+
+    props.passarInfos(condominio);
+
     console.log(condominio)
     await axios.post(`http://localhost:8080/condominio/cadastrar`, condominio)
       .then(res => {
@@ -79,8 +85,9 @@ const FormRegistro = () => {
 
       // setInfoRegistro ({cnpj: CNPJ, cep: CEP, telefone: TELEFONE, email: EMAIL, 
       //   sindico: SINDICO, qtdBlocos: QTDBLOCOS, numero: NUMERO})
-
-      Navigate('/RegistroEnviarArq');
+    
+      
+      
   }
   return (
 
