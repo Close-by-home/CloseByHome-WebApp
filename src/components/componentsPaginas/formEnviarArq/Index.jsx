@@ -11,9 +11,12 @@ import axios from 'axios';
 
 const FormEnviarArq = (props) => {
 
+  const [temArq, setTemArq] = useState(null); 
   const [msg, setMsg] = useState("");
   const [novaClass, setNovaClass] = useState("");
+
   const [temArq, setTemArq] = useState(null);
+
   const [notificacao, setNotificacao] = useState(false);
   const [download, setDownload] = useState('');
   const [count, setCount] = useState(0);
@@ -31,6 +34,7 @@ const FormEnviarArq = (props) => {
     
       console.log(props.codCond.CODIGO, formData)
 
+
     await axios.post(`http://localhost:8080/condominio/import-usuarios/${props.codCond.CODIGO}`, formData)
     .then(res => {
       console.log(res.data)
@@ -43,8 +47,6 @@ const FormEnviarArq = (props) => {
     }
     
   }
-
-
 
 
 
@@ -85,6 +87,7 @@ const FormEnviarArq = (props) => {
         <div className={style.bolinha} >
           1
         </div>
+
         <div className={style.linhas}>----------</div>
         <div className={style.bolinhaSelecionada}>
           2
@@ -93,6 +96,7 @@ const FormEnviarArq = (props) => {
         <div className={style.bolinha}>
           3
         </div>
+
 
       </div>
 
@@ -116,10 +120,34 @@ const FormEnviarArq = (props) => {
 
       </div>
 
-      <div style={{ height: "1em" }}></div>
-      <div className={style.botao}>
-        <BotaoCheio text="Prosseguir" cor="azul" funcao={Prosseguir} />
-      </div>
+
+
+    
+    <h2>
+      Registre seus moradores!
+    </h2>
+
+    <div className={style.centralizar}>
+
+    <p className={style.textoArq}>Use o nosso modelo para registro</p>
+   <p>Modelo registro</p>
+
+    <div onDrop={(e) => dropArq(e)} onDragOver={(e) => hoverArq(e)} onDragLeave={(e) => hoverLeaveArq(e)} className={style.enviarArq} >
+            <input style={{display: "none"}} type="file" id="arq"  onChange={(e) => EnviarArq(e.target.files[0])}/>
+            {temArq ? 
+            <button onClick={() => setTemArq(null)}>{temArq.name} <span>x</span></button>
+            : 
+            <label  htmlFor="arq">Arreste seu arquivo aqui</label>}
+            
+    </div>
+
+    </div>
+
+          <div className={style.botao}>
+        <BotaoCheio text="Retornar" cor="azul" funcao={() => prosseguir("registro")} />
+        <BotaoCheio text="Prosseguir" cor="azul" funcao={() => prosseguir("conferirDados")} />
+        </div> 
+
     </div>
 
   )

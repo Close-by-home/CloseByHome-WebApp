@@ -1,14 +1,8 @@
-
-import { AppContext } from '../../../Data/Store';
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 
 import style from './Style.module.css';
-import { paginationClasses } from '@mui/material';
-
 
 const ConferirDados = ({passarInfos, pagina}) => {
   const navigate = useNavigate();
@@ -30,11 +24,11 @@ return (
         <div className={style.bolinha} >
         1
         </div>
-      <div className={style.linhas}>----------</div>
+      <div className={style.linhas}>----</div>
       <div className={style.bolinha}>
         2
       </div>
-      <div className={style.linhas}>----------</div>
+      <div className={style.linhas}>----</div>
       <div className={style.bolinhaSelecionada}>
         3
       </div>
@@ -62,6 +56,7 @@ return (
 
           <div style={{height:"1em"}}></div>
           <div className={style.botao}>
+        <BotaoCheio text="Retornar" cor="azul" funcao={() => pagina("formEnviarArq")}/>
         <BotaoCheio text="Prosseguir" cor="azul" funcao={Confirmar}/>
         </div> 
     </div>
