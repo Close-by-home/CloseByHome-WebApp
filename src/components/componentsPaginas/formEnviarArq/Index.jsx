@@ -11,9 +11,9 @@ import axios from 'axios';
 
 const FormEnviarArq = (props) => {
 
+  const [temArq, setTemArq] = useState(null); 
   const [msg, setMsg] = useState("");
   const [novaClass, setNovaClass] = useState("");
-  const [temArq, setTemArq] = useState(null); 
   const [notificacao, setNotificacao] = useState(false);
   
 
@@ -23,18 +23,15 @@ const FormEnviarArq = (props) => {
         console.log(arq)
         setTemArq(arq);
         // await axios.post('')     
+      } else {
+        setMsg("Esse tipo de arquivo não é suportado");
+        setNotificacao(true);
       }
-      
+    }
 
 
-      else{
-        setMsg("Infelizmente esse tipo de arquivo não é suportado")
-      }
-      }
-
-
-      const Prosseguir = () => {
-        props.pagina("conferirDados");
+      function prosseguir(pagina) {
+        props.pagina(pagina);
 
         props.passarInfos({nomeArq: temArq.name})
       }
@@ -66,11 +63,11 @@ return (
         <div className={style.bolinha} >
         1
         </div>
-      <div className={style.linhas}>----------</div>
+      <div className={style.linhas}>----</div>
       <div className={style.bolinhaSelecionada}>
         2
       </div>
-      <div className={style.linhas}>----------</div>
+      <div className={style.linhas}>----</div>
       <div className={style.bolinha}>
         3
       </div>
@@ -81,22 +78,26 @@ return (
     <h2>
       Registre seus moradores!
     </h2>
-        
+
+    <div className={style.centralizar}>
+
     <p className={style.textoArq}>Use o nosso modelo para registro</p>
    <p>Modelo registro</p>
 
     <div onDrop={(e) => dropArq(e)} onDragOver={(e) => hoverArq(e)} onDragLeave={(e) => hoverLeaveArq(e)} className={style.enviarArq} >
             <input style={{display: "none"}} type="file" id="arq"  onChange={(e) => EnviarArq(e.target.files[0])}/>
             {temArq ? 
-            <button onClick={() => setTemArq(null)}>{temArq.name} X</button>
+            <button onClick={() => setTemArq(null)}>{temArq.name} <span>x</span></button>
             : 
             <label  htmlFor="arq">Arreste seu arquivo aqui</label>}
             
-          </div>
+    </div>
 
-          <div style={{height:"1em"}}></div>
+    </div>
+
           <div className={style.botao}>
-        <BotaoCheio text="Prosseguir" cor="azul" funcao={Prosseguir} />
+        <BotaoCheio text="Retornar" cor="azul" funcao={() => prosseguir("registro")} />
+        <BotaoCheio text="Prosseguir" cor="azul" funcao={() => prosseguir("conferirDados")} />
         </div> 
     </div>
     

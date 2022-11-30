@@ -8,40 +8,32 @@ import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 const FormModSenha = () => {
   const navigate = useNavigate();
 
-  const [CODCOND, setCODCOND] = useState("");
+  const [SENHATUAL, setSENHATUAL] = useState("");
   const [EMAIL, setEMAIL] = useState("");
   const [NOVASENHA, setNOVASENHA] = useState("");
-  const [REPSENHA, setREPSENHA] = useState("");
   
 
-  function inputCodCond(event) {
-      setCODCOND(event.target.value);
+  function inputSenhaAtual(event) {
+    setSENHATUAL(event.target.value);
   }
   function inputEmail(event) {
-      setEMAIL(event.target.value);
+    setEMAIL(event.target.value);
   }
 
   function inputNovaSenha(event) {
-      setNOVASENHA(event.target.value);
-  }
-
-
-  function inputRepSenha(event) {
-      setREPSENHA(event.target.value);
+    setNOVASENHA(event.target.value);
   }
   
   
   async function atualizarSenha() {
-    if(NOVASENHA === REPSENHA) {
-      await axios.put(
-        `http://localhost:8080/usuario/atualizar-senha-esquecida/${CODCOND}/${EMAIL}/${NOVASENHA}`
-      ).then(res => {
-        console.log(res.data)
-        navigate('/login')
-      }).catch(err => {
-        console.log(err)
-      })
-    }
+    await axios.put(
+      `http://localhost:8080/usuario/atualizar-senha-esquecida/${SENHATUAL}/${EMAIL}/${NOVASENHA}`
+    ).then(res => {
+      console.log(res.data)
+      navigate('/login')
+    }).catch(err => {
+      console.log(err)
+    })
   }
   
 
@@ -54,11 +46,9 @@ const FormModSenha = () => {
         Mudar a senha
       </h2>
       
-      <InputLabel text="Código do Condominio"  type="text" valor={inputCodCond}/>
-      <InputLabel text="E-mail"  type="email" valor={inputEmail} />
-      <InputLabel text="Nova Senha"  type="password" valor={inputNovaSenha}  />
-      <InputLabel text="Repita a senha"  type="password" valor={inputRepSenha} />
-      
+      <InputLabel text="E-mail" type="email" valor={inputEmail} />
+      <InputLabel text="Senha Atual" type="text" valor={inputSenhaAtual}/>
+      <InputLabel text="Nova Senha" type="password" valor={inputNovaSenha}  />
 
       <BotaoCheio text="Mudar Senha" cor="azul" funcao={atualizarSenha} />  
       </div>

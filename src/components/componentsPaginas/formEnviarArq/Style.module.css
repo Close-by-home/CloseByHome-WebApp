@@ -1,3 +1,6 @@
+.tudo{
+  height: 100%;
+}
 .divForm{
     display:flex; 
     width:100%; 
@@ -37,8 +40,10 @@
   .linhas{
     margin-left: .1em;
     margin-right: .1em;
+    font-size: 2rem;
     display: flex;
-    color: blue;
+    font-weight: 300;
+    color: #0038FF;
     align-items: center;
   }
   
@@ -56,11 +61,19 @@
     align-items: center;
     justify-content: center;
     color: #FF9F1C;
-    
-    margin: 1em;
+
   }
   .enviarArq label{
     cursor: pointer;
+  }
+  .enviarArq button{
+    cursor: pointer;
+  }
+  .enviarArq span{
+    background-color: #555555;
+    color: #f1f1f1;
+    padding: .1em .4em;
+    border-radius: .2em;
   }
   .hoverArq{
     background-color: #c7c7c7;
@@ -70,10 +83,15 @@
   .tudo .textoArq{
     color: rgba(0, 0, 0, 0.541);
   }
+  .centralizar{
+    margin: 5em 0;
+  }
 
 .botao{
     display: flex;
-    justify-content: center;
+    margin-top: 1em;
+    justify-content: space-between;
+    /* justify-content: center; */
 }
 
 .enviarArq button{

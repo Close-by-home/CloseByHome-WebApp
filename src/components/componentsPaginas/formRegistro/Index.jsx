@@ -18,9 +18,6 @@ const FormRegistro = (props) => {
   const [EMAIL, setEMAIL] = useState("");
   const [QTDBLOCOS, setQtdBlocos] = useState("");
   const [SINDICO, setSindico] = useState("");
-  const [bolinha1, setBolinha1] = useState(true);
-  const [bolinha2, setBolinha2] = useState(false);
-  const [bolinha3, setBolinha3] = useState(false);
   
   function inputCnpj(event) {
     setCNPJ(event.target.value);
@@ -54,8 +51,6 @@ const FormRegistro = (props) => {
 
 
   async function cadastrar() {
-    setBolinha1(false);
-    setBolinha2(true);
     const condominio = {
       cnpj: CNPJ,
       codigoCondominio: '012392',
@@ -80,13 +75,8 @@ const FormRegistro = (props) => {
       }).catch(err => {
         console.log(err)
       })
-
-      // setInfoRegistro ({cnpj: CNPJ, cep: CEP, telefone: TELEFONE, email: EMAIL, 
-      //   sindico: SINDICO, qtdBlocos: QTDBLOCOS, numero: NUMERO})
-    
-      
-      
   }
+  
   return (
 
     <div className={style.tudo}>
@@ -113,21 +103,23 @@ const FormRegistro = (props) => {
         Registre seu condominio!
       </h2>
 
-      <InputLabel text="CNPJ" type="number" valor={inputCnpj} />
-
-      <div className={style.divForm}>
-        <InputLabel text="CEP" type="number" valor={inputCep} tamanho="12" />
-        <InputLabel text="Telefone" type="number" valor={inputTelefone} tamanho="15" />
+      <div>
+        <InputLabel text="CNPJ" type="number" valor={inputCnpj} />
+        <div className={style.divForm}>
+          <InputLabel text="CEP" type="number" valor={inputCep} tamanho="12" />
+          <InputLabel text="Telefone" type="number" valor={inputTelefone} tamanho="15" />
+        </div>
+        <InputLabel text="Email Sindico" type="text" valor={inputEmail} />
+        <InputLabel text="Nome Sindico" type="text" valor={inputSindico} />
+        <div className={style.divForm}>
+          <InputLabel text="Quantidade de blocos" type="number" valor={inputQtdBlocos} tamanho="15" />
+          <InputLabel text="Número" type="number" valor={inputNumero} tamanho="12" />
+        </div>
       </div>
-      <InputLabel text="Email Sindico" type="text" valor={inputEmail} />
-      <InputLabel text="Nome Sindico" type="text" valor={inputSindico} />
-      <div className={style.divForm}>
-        <InputLabel text="Quantidade de blocos" type="number" valor={inputQtdBlocos} tamanho="15" />
-        <InputLabel text="Número" type="number" valor={inputNumero} tamanho="12" />
-      </div>
 
-      <div style={{ height: "1em" }}></div>
-      <BotaoCheio text="Prosseguir" cor="azul" funcao={cadastrar} />
+      <div style={{ marginTop: "1em" }}>
+       <BotaoCheio text="Prosseguir" cor="azul" funcao={cadastrar} />
+      </div>
 
     </div>
   )

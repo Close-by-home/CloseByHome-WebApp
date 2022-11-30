@@ -1,3 +1,7 @@
+.tudo{
+  height: 100%;
+  width: 25.2em;
+}
 .divForm{
     display:flex; 
     width:100%; 
@@ -37,8 +41,10 @@
   .linhas{
     margin-left: .1em;
     margin-right: .1em;
+    font-size: 2rem;
     display: flex;
-    color: blue;
+    font-weight:   300;
+    color: #0038FF;
     align-items: center;
   }
   
@@ -73,7 +79,8 @@
 
 .botao{
     display: flex;
-    justify-content: center;
+    margin-top: .7em;
+    justify-content: space-between;
 }
 
 .informacoes{
