@@ -45,7 +45,7 @@ const Registro = () => {
        
        
         { pagina === "registro" && <FormRegistro pagina={(newPage) => renderizarPagina(newPage)} passarInfos = {(infos)=> pegarInfos(infos)}></FormRegistro>}
-        { pagina === "formEnviarArq" && <FormEnviarArq pagina={(newPage) => renderizarPagina(newPage)} passarInfos = {(infos)=> pegarInfos(infos)}/>}
+        { pagina === "formEnviarArq" && <FormEnviarArq pagina={(newPage) => renderizarPagina(newPage)} passarInfos = {(infos)=> pegarInfos(infos)} codCond = {infoRegistro}/>}
         { pagina === "conferirDados" && <FormConferirDados pagina={(newPage) => renderizarPagina(newPage)} passarInfos = {infoRegistro} />}
 
        

@@ -50,6 +50,7 @@
   .tudo p{
     color: #FF9F1C;
     font-weight: 800;
+   
   }
 
   .enviarArq{
@@ -78,6 +79,7 @@
   .hoverArq{
     background-color: #c7c7c7;
     border-color: #ffb144;  
+   
   }
 
   .tudo .textoArq{
@@ -85,6 +87,13 @@
   }
   .centralizar{
     margin: 5em 0;
+  }
+
+  .tudo .modeloArq{
+    width: 8em;
+    cursor: pointer;
+    text-decoration: underline;
+    
   }
 
 .botao{
@@ -99,4 +108,5 @@
   border: none;
   color: #FF9F1C;
   height: 2em;
+  
 }

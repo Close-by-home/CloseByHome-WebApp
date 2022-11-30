@@ -8,6 +8,7 @@ const ConferirDados = ({passarInfos, pagina}) => {
   const navigate = useNavigate();
     console.log(passarInfos, passarInfos.arq)
 
+
     const Confirmar = () => {
       navigate('/AdmCondominio');
 

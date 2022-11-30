@@ -52,6 +52,7 @@ const FormRegistro = (props) => {
 
   async function cadastrar() {
     const condominio = {
+
       cnpj: CNPJ,
       codigoCondominio: '012392',
       cep: CEP,
@@ -61,6 +62,7 @@ const FormRegistro = (props) => {
       sindico: SINDICO,
       emailSindico: EMAIL,
       telefoneSindico: '12331234151'
+
     }
      
     props.pagina("formEnviarArq");
