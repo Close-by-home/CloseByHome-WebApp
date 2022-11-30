@@ -1,6 +1,7 @@
 .main{
     display: flex;
     background: #f1f1f1;
+
   }
   .logo{
     width: 50%;
@@ -15,30 +16,9 @@
     display: flex;
     align-items: center;
   }
-  .bolinha{
-    width: 100%;
-    height: 60%;
-    border-radius: 50%;
-    background: #FF9F1C;
-    margin-left: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   
-  .bolinhaSelecionada{
-    width: 100%;
-    height: 60%;
-    border-radius: 50%;
-    background: #e18401;
-    margin-left: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .bolinha img{
-    width: 70%;
-  }
+  
+ 
   .logo .imgContainer{
     width: 80%;
     height: 70%;
@@ -50,12 +30,14 @@
     width: 60%;
   }
   .form{
-    /* width: 50%; */
+    width: 60%;
     height: 100vh;
     padding-left: 7%;
     /* background: #FF9F1C; */
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
   
   

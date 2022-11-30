@@ -75,3 +75,10 @@
     display: flex;
     justify-content: center;
 }
+
+.enviarArq button{
+  background-color: #f1f1f1;
+  border: none;
+  color: #FF9F1C;
+  height: 2em;
+}
