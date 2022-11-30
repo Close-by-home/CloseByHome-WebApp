@@ -61,7 +61,7 @@ const FormRegistro = (props) => {
     const condominio = {
       CEP: CEP,
       CNPJ: CNPJ,
-      CODIGO: '012392',
+      CODIGO: '09520000',
       EMAIL: EMAIL,
       NUMERO: NUMERO,
       QTDBLOCOS: QTDBLOCOS,

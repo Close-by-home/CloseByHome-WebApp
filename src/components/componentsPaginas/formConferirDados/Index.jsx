@@ -13,7 +13,7 @@ import { paginationClasses } from '@mui/material';
 const ConferirDados = ({passarInfos, pagina}) => {
   const navigate = useNavigate();
     console.log(passarInfos, passarInfos.arq)
-    const {infoRegistro} = useContext(AppContext);
+
 
     const Confirmar = () => {
       navigate('/AdmCondominio');
