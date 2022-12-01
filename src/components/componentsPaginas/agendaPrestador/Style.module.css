@@ -26,7 +26,7 @@
   border: solid 0.2em #FF9F1C;
   margin-right: .5em;
   border-radius: 9999px;
-  background-color: #808080;
+  background-color: #c5c5c5;
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -121,7 +121,7 @@
 .perfilModal{
   width: 4.5em;
   height: 4.5em;
-  background-color: #808080;
+  background-color: #b3b3b3;
   border-radius: 9999px;
   border: .2em solid #FF9F1C;
   background-repeat: no-repeat;

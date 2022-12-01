@@ -20,11 +20,15 @@ const Servico = (props) => {
   const [listaServ, setListaServ] = useState([historico]);
   const { codigoDoCondominio } = useContext(AppContext);
   
-
   useEffect(() => {
-    let filtro = historico.filter(serv => serv.user.toLowerCase().indexOf(pesquisa.toLowerCase()) >= 0);
-    setListaServ(filtro)
-  }, [pesquisa])
+    axios.get(`http://localhost:8080/funcionario/${codigoDoCondominio}`)
+      .then(res => {
+        console.log(res.data)
+        setListaServ (res.data);
+      }).catch(err => {
+        console.log(err)
+      })
+  }, [])
 
   function selecionarServico(servico) {
     setServico(servico);
@@ -33,7 +37,7 @@ const Servico = (props) => {
   function filtroTag(e) {
     setListaServ([])
     if(e.target.value) {
-      axios.get(`http://localhost:8080/funcionario/buscaPorServico/${e.target.value}`)
+      axios.get(`http://localhost:8080/funcionario/buscaPorServico/${e.target.value}/${codigoDoCondominio}`)
       .then(res => {
         console.log(res.data)
         setListaServ (res.data);
@@ -41,7 +45,7 @@ const Servico = (props) => {
         console.log(err)
       })
     } else {
-      axios.get(`http://localhost:8080/funcionario/${codigoDoCondominio}`)
+      axios.get(`http://localhost:8080/funcionario/${codigoDoCondominio}/`)
       .then(res => {
         console.log(res.data)
         setListaServ (res.data);
@@ -55,7 +59,7 @@ const Servico = (props) => {
     setListaServ([])
     setPesquisa(e.target.value)
     if(e.target.value) {
-      axios.get(`http://localhost:8080/funcionario/buscaPorNome/${e.target.value}`)
+      axios.get(`http://localhost:8080/funcionario/buscaPorNome/${e.target.value}/${codigoDoCondominio}`)
       .then(res => {
         console.log(res.data)
         setListaServ (res.data);
@@ -100,6 +104,7 @@ const Servico = (props) => {
                 <option value="Manicure">Manicure</option>
                 <option value="Cabeleleiro">Cabeleleiro</option>
                 <option value="Jardineiro">Jardineiro</option>
+                <option value="Encanador">Encanador</option>
               </select>
               <span className={ style.setaPersonalizada }>
                 <img src={ seta } alt="" />

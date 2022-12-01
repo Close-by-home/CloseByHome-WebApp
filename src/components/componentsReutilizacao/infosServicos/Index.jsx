@@ -13,7 +13,7 @@ const InfosServicos = ({ trab, funcao }) => {
 
   return(
     <main className={ style.infos } onClick={() => funcao(trab)}>
-      <div className={ style.imgPerfil } style={{ backgroundImage: `url(${trab.imagem})` }}></div>
+      <div className={ style.imgPerfil } style={{ backgroundImage: `url(${'https://cdn-icons-png.flaticon.com/512/1361/1361728.png'})` }}></div>
       <div className={ style.infosNome }>
         <p className={ style.p1 }>Prestador:</p>
         <p className={ style.p2 }>{ trab.nomeUsuario }</p>
@@ -28,7 +28,7 @@ const InfosServicos = ({ trab, funcao }) => {
           <p>{ trab.nomeServico }</p>
         </div>
           <p>Contato:</p>
-          <p>{ trab.emailUsuario }</p>
+          <p style={{fontSize: ".8rem"}}>{ trab.emailUsuario }</p>
       </div>
     </main>
   )

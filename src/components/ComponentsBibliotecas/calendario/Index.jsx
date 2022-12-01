@@ -10,7 +10,9 @@ const Calendario = (props) => {
   function agendar(novaData) {
     setData(novaData);
     let separarDia = new Date(novaData);
-    let dataFormatada =  separarDia.getFullYear() + "-" + "0" + separarDia.getMonth() + "-"  + separarDia.getDate();
+    let mes = separarDia.getMonth() > 9 ? separarDia.getMonth() : "0" + separarDia.getMonth();
+    let dia = separarDia.getDate() > 9 ? separarDia.getDate() : "0" + separarDia.getDate();
+    let dataFormatada =  separarDia.getFullYear() + "-" + mes + "-"  + dia;
     props.dia(dataFormatada)
   }
 

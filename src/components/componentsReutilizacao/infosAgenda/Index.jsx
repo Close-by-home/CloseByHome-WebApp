@@ -55,7 +55,9 @@ const InfosAgenda = (props) => {
   return(
     <div className={ style.infosTrab }>
       <div className={ style.info1 }>
-        <div className={ style.imgPerfil }></div>
+        <div className={ style.imgPerfil }>
+          <img src="https://cdn-icons-png.flaticon.com/512/1361/1361728.png" alt="" />
+        </div>
         <div className={ style.textInfo }>
           <p>Prestador:</p>
           <p className={ style.notStrong }>{ props.nome }</p>
@@ -72,7 +74,7 @@ const InfosAgenda = (props) => {
         </div>
       </div>
       <div className={ style.info2 }>
-        <div className={ style.avaliacao }>
+        {!props.aparecerNota ? <div className={ style.avaliacao }>
           <p>Avalie o serviço:</p>
           <div className={ style.estrelas }>
             <img 
@@ -126,7 +128,7 @@ const InfosAgenda = (props) => {
               alt="" 
             />
           </div>
-        </div>
+        </div> : null}
         <div className={ style.status }>
           <p>Status:</p>
           <p>Em andamento</p>

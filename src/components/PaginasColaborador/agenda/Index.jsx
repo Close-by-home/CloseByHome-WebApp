@@ -12,14 +12,14 @@ const Agenda = (props) => {
   const [servicos, setServicos] = useState([]);
   const [geralServicos, setGeralServicos] = useState([]);
   const [dia, setDia] = useState();
-  const {codigoDoCondominio } = useContext(AppContext);
+  const { cpf } = useContext(AppContext);
  
   
   function pegarDia(dia) {
     setDia(dia)
     setServicos(geralServicos.filter((serv)=>{
       let diasFiltrados = serv.data.slice(0,10);
-      console.log(serv.data,  dia);
+      console.log(diasFiltrados,  dia, serv);
       return diasFiltrados === dia && serv
     }))
     console.log(dia)
@@ -27,11 +27,11 @@ const Agenda = (props) => {
 
   useEffect(() => {
     
-      axios.get(`http://localhost:8080/agenda/${1}`)
+      axios.get(`http://localhost:8080/agenda/${cpf}`)
       .then(res => {
         console.log(res.data);
         // setServicos (res.data);
-        setGeralServicos (res.data);
+        setGeralServicos (res.data ? res.data : []);
       }).catch(err => {
         console.log(err)
       })
@@ -46,10 +46,11 @@ const Agenda = (props) => {
         return(
           <InfosAgenda 
             key={ i }
-            nome={ serv.nome } 
-            horario={ serv.horario }  
-            servico={ serv.servico } 
-            contato={ serv.contato }
+            nome={ serv.nomeUsuario } 
+            horario={ serv.data.slice(11,-4) }  
+            servico={ serv.nomeServico } 
+            contato={ serv.telefone }
+            aparecerNota={true}
           />
         )
       }) 

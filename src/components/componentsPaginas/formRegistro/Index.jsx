@@ -1,23 +1,22 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContext } from '../../../Data/Store';
 
 import style from './Style.module.css';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
-
 
 import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
-import { areDayPropsEqual } from '@mui/x-date-pickers/internals';
 
 const FormRegistro = (props) => {
+  const { setCodigoDoCondominio } = useContext(AppContext);
   
-  const [CNPJ, setCNPJ] = useState("");
-  const [CEP, setCEP] = useState("");
-  const [TELEFONE, setTELEFONE] = useState("");
-  const [NUMERO, setNUMERO] = useState("");
-  const [EMAIL, setEMAIL] = useState("");
-  const [QTDBLOCOS, setQtdBlocos] = useState("");
-  const [SINDICO, setSindico] = useState("");
+  const [CNPJ, setCNPJ] = useState(null);
+  const [CEP, setCEP] = useState(null);
+  const [TELEFONE, setTELEFONE] = useState(null);
+  const [NUMERO, setNUMERO] = useState(null);
+  const [EMAIL, setEMAIL] = useState(null);
+  const [QTDBLOCOS, setQtdBlocos] = useState(null);
+  const [SINDICO, setSindico] = useState(null);
   
   function inputCnpj(event) {
     setCNPJ(event.target.value);
@@ -47,11 +46,15 @@ const FormRegistro = (props) => {
   };
 
 
-
-
+  
+  
   async function cadastrar() {
-    const condominio = {
+    if(CNPJ === null || CEP === null || TELEFONE === null || NUMERO === null || QTDBLOCOS === null || SINDICO === null || EMAIL === null) {
+      props.aviso("Existem campos não preenchidos")
+      return
+    }
 
+    const condominio = {
       cnpj: CNPJ,
       codigoCondominio: '012392',
       cep: CEP,
@@ -60,16 +63,14 @@ const FormRegistro = (props) => {
       quatidadeDeBlocos: QTDBLOCOS,
       sindico: SINDICO,
       emailSindico: EMAIL
-
     }
-     
-    props.pagina("formEnviarArq");
-
-    props.passarInfos(condominio);
+    
     await axios.post(`http://localhost:8080/condominio/cadastrar`, condominio)
-      .then(res => {
+    .then(res => {
+      props.pagina("formEnviarArq");
+      setCodigoDoCondominio(res.data.codigoCondominio)
+      props.passarInfos(res.data);
         console.log(res.data)
-        return res.data;
       }).catch(err => {
         console.log(err)
       })

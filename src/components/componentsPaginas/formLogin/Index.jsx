@@ -47,6 +47,8 @@ const FormLogin = () => {
     })
     .then(res => {
       console.log(res)
+      let img = res.data.imagem === "imagem" ? "https://cdn-icons-png.flaticon.com/512/1361/1361728.png" : res.data.imagem.slice(6, -2)
+      console.log(img)
       setState({
         ...state,
         nome: res.data.nome,
@@ -54,7 +56,7 @@ const FormLogin = () => {
         codigoDoCondominio: res.data.codigoCondominio,
         email: res.data.email,
         numero: res.data.telefone,
-        img: res.data.imagem,
+        img: img,
         cpf: res.data.cpf,
         servico: res.data.funcionario
       })

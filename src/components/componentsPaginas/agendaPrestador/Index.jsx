@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContext } from '../../../Data/Store';
+import axios from 'axios';
 
 import Calendario from '../../ComponentsBibliotecas/calendario/Index'; 
 import ButtonCheio from '../../componentsReutilizacao/botaoCheio/Botao';
@@ -14,6 +16,8 @@ const AgendaPresador = ({ infos, pagina }) => {
   const [diaSelect, setDiaSelect] = useState();
   const [modal, setModal] = useState(false);
   const [notificacao, setNotificacao] = useState(false);
+
+  const { cpf } = useContext(AppContext);
 
   let notaTemp = [0, 0, 0, 0, 0]
 
@@ -40,6 +44,7 @@ const AgendaPresador = ({ infos, pagina }) => {
   function pegarDia(dia) {
     setHorarioSelect();
     setDiaSelect(dia);
+    console.log(dia)
   }
 
   function agendarServico() {
@@ -54,6 +59,18 @@ const AgendaPresador = ({ infos, pagina }) => {
       pagina("agenda")
     }, 2000)
     
+  }
+
+  function contratar() {
+
+    http://localhost:8080/agenda/47415092066/70109220048/2022-11-21T17%3A09%3A42.411
+    axios.get(`http://localhost:8080/agenda/${infos.cpf}/${cpf}/${diaSelect}T17%3A09%3A42.411`)
+      .then(res => {
+        console.log(res.data)
+        setModal(false)
+      }).catch(err => {
+        console.log(err)
+      })
   }
 
   function mostrarHorario() {
@@ -86,14 +103,14 @@ const AgendaPresador = ({ infos, pagina }) => {
           estilo={{fontSize: "1.3rem", padding: ".5em 1.3em", marginBottom: "1em"}}/> : null}
         </div>
         {modal ? 
-        <MsgModal fechar={() => setModal(false)} titulo="Confirmar Serviço" confirmar={() => confirmarServico()}>
+        <MsgModal fechar={() => setModal(false)} titulo="Confirmar Serviço" confirmar={() => contratar()}>
           <div style={{textAlign: "center", fontWeight: "600"}}>
           <p>Esse são as configurações do seu serviço:</p>
           <div className={style.cont}>
             <div className={style.card}>
-              <div className={style.perfilModal} style={{backgroundImage: `url(${infos.imagem})`}}></div>
+              <div className={style.perfilModal} style={{backgroundImage: `url(https://cdn-icons-png.flaticon.com/512/1361/1361728.png)`}}></div>
               <div className={style.info1}>
-                <p>{infos.user}</p>
+                <p>{infos.nomeUsuario}</p>
                 <div>
                   <p>Dia:</p>
                   <p>{diaSelect}</p>
@@ -102,7 +119,7 @@ const AgendaPresador = ({ infos, pagina }) => {
               <div className={style.info2}>
                 <div className={style.listra}>
                   <div></div>
-                  <p>{infos.servico}</p>  
+                  <p>{infos.nomeServico}</p>  
                 </div>
                   <p style={{fontWeight: "600"}}>Horario:</p>
                   <p>{horarioSelect}</p>
@@ -120,10 +137,10 @@ const AgendaPresador = ({ infos, pagina }) => {
   return(
     <div className={ style.agenda }>
       <div className={ style.perfil }>
-        <div className={ style.imgPerfil } style={{ backgroundImage: `url(${infos.imagem})` }}></div>
+        <div className={ style.imgPerfil } style={{ backgroundImage: `url(https://cdn-icons-png.flaticon.com/512/1361/1361728.png)` }}></div>
         <div className={ style.nomeProf }>
-          <p>{infos.user}</p>
-          <p>{infos.servico}</p>
+          <p>{infos.nomeUsuario}</p>
+          <p>{infos.nomeServico}</p>
         </div>
         <div className={style.avaliacao}>
           <p>X avaliações</p>

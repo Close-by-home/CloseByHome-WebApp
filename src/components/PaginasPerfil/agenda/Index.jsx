@@ -18,24 +18,21 @@ const Agenda = (props) => {
   const [geralServicos, setGeralServicos] = useState([]);
   const { cpf } = useContext(AppContext);
 
-  useEffect((e) => {
-    setServicos(
-      axios.get(`http://localhost:8080/agenda/buscarPorCpf/${`70109220048`}`)
+  useEffect(() => {
+      axios.get(`http://localhost:8080/agenda/buscarPorCpf/${cpf}`)
       .then(res => {
+        setGeralServicos(res.data ? res.data : []);
         console.log(res.data)
-        setGeralServicos (res.data);
       }).catch(err => {
         console.log(err)
       })
-  }, [dia])
+  }, [])
 
   function pegarDia(dia) {
 
-   
-      setDia(dia)
-      setServicos(geralServicos.filter((serv)=>{
-        let diasFiltrados = serv.data.slice(0,10);
-        console.log(serv.data,  dia);
+    setDia(dia)
+    setServicos(geralServicos.filter((serv)=>{
+      let diasFiltrados = serv.dateTime.slice(0,10);
         return diasFiltrados === dia && serv
       }))
       console.log(dia)
@@ -43,6 +40,8 @@ const Agenda = (props) => {
   
     
   }
+
+  
 
   function diasTrab(dataServ) {
     if(dataServ.length > 0) {

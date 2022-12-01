@@ -1,5 +1,6 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { AppContext } from '../../../Data/Store';
+import axios from 'axios';
 
 import Notificacao from '../../componentsPaginas/notificacao/Index';
 
@@ -9,9 +10,21 @@ import notificacaoNova from '../../../assets/icons/notificacaoNova.png';
 
 const TitutloTelas = (props) => {
   const { img, nome } = useContext(AppContext);
-
   const [aparecer, setAparecer] = useState(false)
-  const [notificacao, setNotificacao] = useState(["msg 1", "msg 2", "msg 3"])
+  const [notificacao, setNotificacao] = useState([])
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/notificacao/2`)
+    .then(res => {
+        console.log(res.data)
+        setNotificacao(res.data.map(not => {
+          return not.descricao
+        }))
+      }).catch(err => {
+        console.log(err)
+      })
+  }, [])
+
 
   function excluirNotificacao(chave) {
     const novaLista = notificacao.filter((msg) => {
