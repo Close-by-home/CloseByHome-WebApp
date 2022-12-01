@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
 import axios  from 'axios';
 
 import agenda from '../../../Data/agenda';
@@ -9,17 +10,20 @@ import InfosAgenda from '../../componentsReutilizacao/infosAgenda/Index';
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 
 import style from './Style.module.css'
+import { AppContext } from '../../../Data/Store';
 
 const Agenda = (props) => {
   const [servicos, setServicos] = useState([]);
-  const [dia, setDia] = useState()
+  const [dia, setDia] = useState();
+  const [geralServicos, setGeralServicos] = useState([]);
+  const { cpf } = useContext(AppContext);
 
   useEffect((e) => {
     setServicos(
-      axios.get(`http://localhost:8080/agenda/buscaAvaliacaoPorCpf/${e.target.value}`)
+      axios.get(`http://localhost:8080/agenda/buscarPorCpf/${`70109220048`}`)
       .then(res => {
         console.log(res.data)
-        setServicos (res.data);
+        setGeralServicos (res.data);
       }).catch(err => {
         console.log(err)
       })
@@ -27,7 +31,18 @@ const Agenda = (props) => {
   }, [dia])
 
   function pegarDia(dia) {
-    setDia(dia)
+
+   
+      setDia(dia)
+      setServicos(geralServicos.filter((serv)=>{
+        let diasFiltrados = serv.data.slice(0,10);
+        console.log(serv.data,  dia);
+        return diasFiltrados === dia && serv
+      }))
+      console.log(dia)
+    
+  
+    
   }
 
   function diasTrab(dataServ) {
