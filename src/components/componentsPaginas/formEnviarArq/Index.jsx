@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const FormEnviarArq = (props) => {
 
-  const [temArq, setTemArq] = useState(null); 
+  
   const [msg, setMsg] = useState("");
   const [novaClass, setNovaClass] = useState("");
   const [notificacao, setNotificacao] = useState(false);
@@ -47,11 +47,13 @@ const FormEnviarArq = (props) => {
 
 
 
+
   function prosseguir(pagina) {
     props.pagina(pagina);
     if(temArq) {
       props.passarInfos({ nomeArq: temArq.name })
     }
+
   }
 
   function hoverArq(e) {

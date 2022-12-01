@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios  from 'axios';
 
 import agenda from '../../../Data/agenda';
 
@@ -13,10 +14,16 @@ const Agenda = (props) => {
   const [servicos, setServicos] = useState([]);
   const [dia, setDia] = useState()
 
-  useEffect(() => {
-    setServicos(agenda.filter((serv) => {
-      return serv.dia === dia
-    }))
+  useEffect((e) => {
+    setServicos(
+      axios.get(`http://localhost:8080/agenda/buscaAvaliacaoPorCpf/${e.target.value}`)
+      .then(res => {
+        console.log(res.data)
+        setServicos (res.data);
+      }).catch(err => {
+        console.log(err)
+      })
+    )
   }, [dia])
 
   function pegarDia(dia) {
