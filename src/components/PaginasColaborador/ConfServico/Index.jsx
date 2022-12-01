@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContext } from '../../../Data/Store';
+import axios from 'axios';
 
 import Calendario from '../../ComponentsBibliotecas/calendario/Index';
 import maisIcon from '../../../assets/icons/icon-mais.png';
@@ -16,6 +18,7 @@ import { dias, tagsServicos } from '../../../Data/configurarServ';
 import style from './Style.module.css';
 
 const ConfServico = (props) => {
+  const { email } = useContext(AppContext);
 
   const [listaDias, setListaDias] = useState([]);
   const [disponivel, setDisponivel] = useState(true);
@@ -110,6 +113,17 @@ const ConfServico = (props) => {
     }
   }
 
+  function setarServ() {
+    axios.put(`http://localhost:8080/usuario/ativar-perfil-funcionario/${email}/${servico}/${0}`)
+    .then((res) => {
+      console.log(res);
+      setModalConfirmar(false);
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
+
   return (
 
     <main className={style.mainServico}>
@@ -127,20 +141,9 @@ const ConfServico = (props) => {
         </MsgModal> : null
       }
       {modalConfirmar ?
-        <MsgModal titulo={"Confirmar alterações"} fechar={() => setModalConfirmar(false)}>
+        <MsgModal titulo={"Confirmar alterações"} confirmar={() => setarServ()} fechar={() => setModalConfirmar(false)}>
             <div className={style.configurar}>
               <h3>Deseja confirmar essas configurações do seu serviço?</h3>
-              <p className={style.infoExemplo}>- Serviço oferecido: </p>
-                {servico ? <li className={style.exemplo}>{servico}</li> : null}
-              <p className={style.infoExemplo}>- Dias de folga: </p>
-                {listaDias.map((d) => {
-                  return <li className={style.exemplo}>{mapearDias(d)}</li>
-                })}
-              <p className={style.infoExemplo}>- Horarios diponiveis: </p>
-                {horarios.map((h) => {
-                  return <li className={style.exemplo}>{h}</li>
-                })}
-              <p className={style.infoExemplo}>- Disponivel: </p>
             </div>
         </MsgModal> : null
       }

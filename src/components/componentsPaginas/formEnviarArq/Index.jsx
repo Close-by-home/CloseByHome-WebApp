@@ -18,7 +18,6 @@ const FormEnviarArq = (props) => {
   const [temArq, setTemArq] = useState(null)
   const [download, setDownload] = useState('');
   const [count, setCount] = useState(0);
-  const [temArq, setTemArq] = useState();
  
 
 
@@ -31,10 +30,10 @@ const FormEnviarArq = (props) => {
       const formData = new FormData();
       formData.append("novosUsuarios", arq);  
     
-      console.log(props.codCond.CODIGO, formData)
+      console.log(props.codCond.codigoCondominio, formData)
 
 
-    await axios.post(`http://localhost:8080/condominio/import-usuarios/${props.codCond.CODIGO}`, formData)
+    await axios.post(`http://localhost:8080/condominio/import-usuarios/${props.codCond.codigoCondominio}`, formData)
     .then(res => {
       console.log(res.data)
       

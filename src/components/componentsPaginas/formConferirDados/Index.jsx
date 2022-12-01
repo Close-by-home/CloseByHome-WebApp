@@ -45,6 +45,7 @@ return (
       <p>CEP: <span>{passarInfos.cep} </span></p>
       <p>Email: <span> {passarInfos.emailSindico}</span></p>
       <p>Nome Sindico: <span> {passarInfos.sindico} </span></p>
+      <p>Código Do Condominio: <span>{passarInfos.codigoCondominio}</span></p>
       <p>Telefone Condominio : <span>{passarInfos.telefone}</span></p>
       <p>Número: <span> {passarInfos.numero} </span></p>
       <p>Quantidade de Blocos:  <span> {passarInfos.cep} </span> </p>  

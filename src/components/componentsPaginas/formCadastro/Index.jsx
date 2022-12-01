@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../../../Data/Store';
 import axios from 'axios';
 
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
@@ -8,7 +9,7 @@ import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
 import style from './Style.module.css';
 
 const FormCadastro = () => {
-  const navigate = useNavigate();
+  const { codigoDoCondominio } = useContext(AppContext);
 
   const [EMAIL, setEMAIL] = useState("");
   const [SENHA, setSENHA] = useState("");

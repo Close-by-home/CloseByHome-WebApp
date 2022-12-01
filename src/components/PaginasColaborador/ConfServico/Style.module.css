@@ -370,7 +370,7 @@ width: 100%;
 }
 .configurar{
   width: 100%;
-  height: 20em;
+  /* height: 20em; */
   /* background-color: red; */
   overflow-y: auto;
 }

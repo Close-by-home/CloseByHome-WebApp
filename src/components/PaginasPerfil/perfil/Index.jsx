@@ -33,7 +33,7 @@ const Perfil = () => {
   function sentEmail(value) {
     if(value === 'Enter') {
       setEditEmail(true);
-      setEmail(value);
+      setEmail(valorEmail);
       setNovoEmail(valorEmail)
     }
   }
@@ -45,21 +45,9 @@ const Perfil = () => {
   function sentNumero(value) {
     if(value === 'Enter') {
       setEditNumero(true);
-      setNumero(value);
+      setNumero(valorNumero);
       setNovoNumero(valorNumero)
     }
-  }
-
-  async function ativarServico() {
-    await axios.put(`http://localhost:8080/usuario/ativar-perfil-funcionario/${email}/${null}/${0}`)
-    .then((res) => {
-      console.log(res);
-      setServico(!servico);
-      setModalServico(!modalServico);
-    })
-    .catch((err) => {
-      console.log(err)
-    })
   }
 
   async function mudarImg(arq) {
@@ -76,6 +64,7 @@ const Perfil = () => {
         setMsg("Imagem Atualizada com sucesso!")
         setCor("verde")
         setImg(res.data.data.link)
+        console.log(res.data.data.link)
         setImgApi(res.data.data.link)
       }).catch((err)=> {
         setCor("laranja")
@@ -109,7 +98,9 @@ const Perfil = () => {
   }
 
   async function setImgApi(img) {
-    await axios.put(`http://localhost:8080/usuario/atualizar/imagem/${cpf}/${email}/${img}`)
+    await axios.put(`http://localhost:8080/usuario/atualizar/imagem/${cpf}/${email}`, {
+      a: img
+    })
     .then((res) => {
       console.log(res)
     })
@@ -142,7 +133,7 @@ const Perfil = () => {
   return(
     <main className={ style.perfil }>
       {modalServico ? 
-      <MsgModal titulo="Ativar conta" fechar={() => setModalServico(false)} confirmar={() => ativarServico()}>
+      <MsgModal titulo="Ativar conta" fechar={() => setModalServico(false)} confirmar={() => setServico(true)}>
         <p>Você tem certeza que deseja ativar sua conta de serviço?</p>
       </MsgModal> : null}
       {modalImg ? 
@@ -173,8 +164,7 @@ const Perfil = () => {
         <div className={style.infos}>
           <InputPerfil texto="Nome" valor={nome} desativar={true} style={{width: "25em", marginBottom: "1em"}}/>
           <div style={{display: 'flex'}}>
-            <InputPerfil texto="Bloco" valor={bloco} desativar={true} style={{width: "10.5em", marginRight: "2em"}}/>
-            <InputPerfil texto="Apartamento" valor={apartamento} desativar={true} style={{width: "12.5em"}}/>
+            <InputPerfil texto="Bloco" valor={bloco} desativar={true} style={{width: "25em", marginRight: "2em"}}/>
           </div>
           <InputPerfil texto="Código do Condominio" valor={codigoDoCondominio} desativar={true} style={{width: "25em", margin: "1em 0"}}/>
           <div className={style.inputEditar}>
