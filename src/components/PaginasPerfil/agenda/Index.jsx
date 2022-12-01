@@ -14,16 +14,14 @@ const Agenda = (props) => {
   const [servicos, setServicos] = useState([]);
   const [dia, setDia] = useState()
 
-  useEffect((e) => {
-    setServicos(
-      axios.get(`http://localhost:8080/agenda/buscaAvaliacaoPorCpf/${e.target.value}`)
+  useEffect(() => {
+      axios.get(`http://localhost:8080/agenda/buscaAvaliacaoPorCpf/${1}`)
       .then(res => {
         console.log(res.data)
         setServicos (res.data);
       }).catch(err => {
         console.log(err)
       })
-    )
   }, [dia])
 
   function pegarDia(dia) {

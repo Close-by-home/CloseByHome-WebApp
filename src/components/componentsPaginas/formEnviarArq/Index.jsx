@@ -15,6 +15,7 @@ const FormEnviarArq = (props) => {
   const [msg, setMsg] = useState("");
   const [novaClass, setNovaClass] = useState("");
   const [notificacao, setNotificacao] = useState(false);
+  const [temArq, setTemArq] = useState(null)
   const [download, setDownload] = useState('');
   const [count, setCount] = useState(0);
  
