@@ -27,7 +27,7 @@ const FormModSenha = () => {
   
   async function atualizarSenha() {
     await axios.put(
-      `http://localhost:8080/usuario/atualizar-senha-esquecida/${SENHATUAL}/${EMAIL}/${NOVASENHA}`
+      `http://localhost:8080/usuario/atualizar-senha/${EMAIL}/${SENHATUAL}/${NOVASENHA}`
     ).then(res => {
       console.log(res.data)
       navigate('/login')

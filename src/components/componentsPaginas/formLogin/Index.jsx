@@ -46,13 +46,17 @@ const FormLogin = () => {
       senha: `${SENHA}`
     })
     .then(res => {
-      console.log(res.data.bloco, res.data.email, res.data.telefone, res.data.nome)
+      console.log(res)
       setState({
         ...state,
+        nome: res.data.nome,
         bloco: res.data.bloco,
+        codigoDoCondominio: res.data.codigoCondominio,
         email: res.data.email,
-        telefone: res.data.telefone,
-        nome: res.data.nome
+        numero: res.data.telefone,
+        img: res.data.imagem,
+        cpf: res.data.cpf,
+        servico: res.data.funcionario
       })
       return navigate('/perfil')
     }).catch(() => {

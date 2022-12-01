@@ -8,6 +8,7 @@ const initialState = {
     email: "",
     numero: "",
     img: "https://cdn-icons-png.flaticon.com/512/1361/1361728.png",
+    cpf: "",
     servico: false,
     infoRegistro: {}
 
@@ -37,6 +38,7 @@ const Store = (props) => {
             img: state.img,
             servico: state.servico,
             infoRegistro: state.infoRegistro,
+            cpf: state.cpf,
             setInfoRegistro: (string) => updateState("infoRegistro", string),
             setNome: (string) => updateState("nome", string),
             setBloco: (string) => updateState("bloco", string),
