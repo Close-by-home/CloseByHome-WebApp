@@ -21,7 +21,6 @@ const FormRegistro = (props) => {
   
   function inputCnpj(event) {
     setCNPJ(event.target.value);
-    console.log(CNPJ)
   }
   function inputCep(event) {
     setCEP(event.target.value);
@@ -60,16 +59,13 @@ const FormRegistro = (props) => {
       numero: NUMERO,
       quatidadeDeBlocos: QTDBLOCOS,
       sindico: SINDICO,
-      emailSindico: EMAIL,
-      telefoneSindico: '12331234151'
+      emailSindico: EMAIL
 
     }
      
     props.pagina("formEnviarArq");
 
     props.passarInfos(condominio);
-
-    console.log(condominio)
     await axios.post(`http://localhost:8080/condominio/cadastrar`, condominio)
       .then(res => {
         console.log(res.data)

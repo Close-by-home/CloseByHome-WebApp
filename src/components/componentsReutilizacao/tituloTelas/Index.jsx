@@ -31,7 +31,7 @@ const TitutloTelas = (props) => {
           alt="notificação" 
         />
         <div onClick={() => props.pagina('perfil')} className={ style.imgPerfil }>
-          <img src={ img } alt="" />
+          <img src={ img === "imagem" ? "https://cdn-icons-png.flaticon.com/512/1361/1361728.png" : img } alt="" />
         </div>
       </div>
       {aparecer ? <div className={ style.notificacao }>
