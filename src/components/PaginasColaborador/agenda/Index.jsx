@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AppContext } from '../../../Data/Store';
 import axios  from 'axios';
 
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
@@ -10,29 +11,36 @@ import style from './Style.module.css'
 const Agenda = (props) => {
   const [servicos, setServicos] = useState([]);
   const [geralServicos, setGeralServicos] = useState([]);
-  const [dia, setDia] = useState()
+  const [dia, setDia] = useState();
+  const {codigoDoCondominio } = useContext(AppContext);
  
   
   function pegarDia(dia) {
     setDia(dia)
+    setServicos(geralServicos.filter((serv)=>{
+      let diasFiltrados = serv.data.slice(0,10);
+      console.log(serv.data,  dia);
+      return diasFiltrados === dia && serv
+    }))
+    console.log(dia)
   }
 
   useEffect(() => {
-    setServicos(
+    
       axios.get(`http://localhost:8080/agenda/${1}`)
       .then(res => {
         console.log(res.data);
-        setServicos (res.data);
+        // setServicos (res.data);
         setGeralServicos (res.data);
       }).catch(err => {
         console.log(err)
       })
-    )}, [])
+    }, [])
   
 
 
   function diasTrab(dataServ) {
-    setServicos(geralServicos)
+    // setServicos(geralServicos)
     if(dataServ.length > 0) {
       return servicos.map((serv, i) => {
         return(
@@ -64,7 +72,7 @@ const Agenda = (props) => {
         <div className={ style.agendados }>
           <fieldset className={ style.servicosAgendados }>
             <legend>Serviços Agendados</legend>
-            {/* { diasTrab(servicos) } */}
+            { diasTrab(servicos) }
           </fieldset>
         </div>
       </div>

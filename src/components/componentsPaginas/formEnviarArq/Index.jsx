@@ -18,6 +18,7 @@ const FormEnviarArq = (props) => {
   const [temArq, setTemArq] = useState(null)
   const [download, setDownload] = useState('');
   const [count, setCount] = useState(0);
+  const [temArq, setTemArq] = useState();
  
 
 
