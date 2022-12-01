@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios  from 'axios';
 
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import InfosAgenda from '../../componentsReutilizacao/infosAgenda/Index';
@@ -8,13 +9,35 @@ import style from './Style.module.css'
 
 const Agenda = (props) => {
   const [servicos, setServicos] = useState([]);
+  const [geralServicos, setGeralServicos] = useState([]);
+  const [dia, setDia] = useState()
+ 
+  
+  function pegarDia(dia) {
+    setDia(dia)
+  }
+
+  useEffect(() => {
+    setServicos(
+      axios.get(`http://localhost:8080/agenda/${1}`)
+      .then(res => {
+        console.log(res.data);
+        setServicos (res.data);
+        setGeralServicos (res.data);
+      }).catch(err => {
+        console.log(err)
+      })
+    )}, [])
+  
+
 
   function diasTrab(dataServ) {
+    setServicos(geralServicos)
     if(dataServ.length > 0) {
-      return servicos.map((serv) => {
+      return servicos.map((serv, i) => {
         return(
           <InfosAgenda 
-            key={ serv.id }
+            key={ i }
             nome={ serv.nome } 
             horario={ serv.horario }  
             servico={ serv.servico } 
@@ -36,12 +59,12 @@ const Agenda = (props) => {
       <TitutloTelas texto="Veja sua" destaque="agenda!" usuario="Usuario" pagina={ props.pagina }/>
       <div className={ style.paginaAgenda }>
         <div className={style.calendario}>
-         <Calendario folgaDias={[]}/>
+         <Calendario dia={pegarDia} folgaDias={[]}/>
         </div>
         <div className={ style.agendados }>
           <fieldset className={ style.servicosAgendados }>
             <legend>Serviços Agendados</legend>
-            { diasTrab(servicos) }
+            {/* { diasTrab(servicos) } */}
           </fieldset>
         </div>
       </div>

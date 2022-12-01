@@ -17,6 +17,7 @@ const FormCadastro = () => {
   const [TELEFONE, setTELEFONE] = useState("");
   const [BLOCO, setBLOCO] = useState("");
   const [CODIGO, setCÓDIGO] = useState("");
+  const IMAGEM = null;
 
 
 
@@ -48,8 +49,18 @@ const FormCadastro = () => {
     setBLOCO(event.target.value)
   }
 
+
+
   async function cadastrar() {
-    const cadastrar = await axios.post(`http://localhost:8080/usuario/logar`, {CÓDIGO:`${inputCódigo}`, EMAIL: `${inputEmail}`, SENHA: `${inputSenha}`})
+    const cadastrar = await axios.post(`http://localhost:8080/usuario/cadastrar/${`09520000`}`, {
+      cpf: `${CPF}`,
+      bloco: `${BLOCO}`, 
+      email: `${EMAIL}`,
+      telefone:`${TELEFONE}`,
+      nome: `${NOME}`, 
+      senha: `${SENHA}`,
+      imagem: null
+      })
     .then(res => {
       console.log(res.data)
       return res.data; 
@@ -57,14 +68,13 @@ const FormCadastro = () => {
       console.log(err)
     })
 
-    cadastrar ? navigate('/perfil') : console.log(cadastrar)
+     console.log(cadastrar)
   }
   
   return(
     <div className={ style.formCadastro }>
       <h2>Faça o cadastro de um novo morador!</h2>
       <InputLabel text="Nome" type="text" valor={ inputNome }/>
-      <InputLabel text="Código do Condominio" type="text" valor={ inputCódigo }/>
       <InputLabel text="E-mail" type="text" valor={ inputEmail }/>
       <InputLabel text="Senha" type="password" valor={ inputSenha }/>
       <InputLabel text="Cpf" type="text" valor={ inputCpf }/>

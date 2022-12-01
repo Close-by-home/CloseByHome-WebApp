@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const FormEnviarArq = (props) => {
 
-  const [temArq, setTemArq] = useState(null); 
+  
   const [msg, setMsg] = useState("");
   const [novaClass, setNovaClass] = useState("");
 
@@ -50,8 +50,8 @@ const FormEnviarArq = (props) => {
 
 
 
-  const Prosseguir = () => {
-    props.pagina("conferirDados");
+  function prosseguir  (pagina){
+    props.pagina(pagina);
 
     props.passarInfos({ nomeArq: temArq.name })
   }
