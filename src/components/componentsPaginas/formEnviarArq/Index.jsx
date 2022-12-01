@@ -14,9 +14,6 @@ const FormEnviarArq = (props) => {
   
   const [msg, setMsg] = useState("");
   const [novaClass, setNovaClass] = useState("");
-
-  const [temArq, setTemArq] = useState(null);
-
   const [notificacao, setNotificacao] = useState(false);
   const [download, setDownload] = useState('');
   const [count, setCount] = useState(0);
@@ -50,10 +47,13 @@ const FormEnviarArq = (props) => {
 
 
 
-  function prosseguir  (pagina){
-    props.pagina(pagina);
 
-    props.passarInfos({ nomeArq: temArq.name })
+  function prosseguir(pagina) {
+    props.pagina(pagina);
+    if(temArq) {
+      props.passarInfos({ nomeArq: temArq.name })
+    }
+
   }
 
   function hoverArq(e) {
@@ -88,11 +88,11 @@ const FormEnviarArq = (props) => {
           1
         </div>
 
-        <div className={style.linhas}>----------</div>
+        <div className={style.linhas}>----</div>
         <div className={style.bolinhaSelecionada}>
           2
         </div>
-        <div className={style.linhas}>----------</div>
+        <div className={style.linhas}>----</div>
         <div className={style.bolinha}>
           3
         </div>
@@ -105,6 +105,7 @@ const FormEnviarArq = (props) => {
         Registre seus moradores!
       </h2>
 
+      <div className={style.centralizar}>
       <p className={style.textoArq}>Use o nosso modelo para registro</p>
       <p className={style.modeloArq}  onClick={() => {setDownload(urlDownload)
       setCount((old) => old +1);
@@ -119,31 +120,9 @@ const FormEnviarArq = (props) => {
           <label htmlFor="arq">Arreste seu arquivo aqui</label>}
 
       </div>
-
-
-
-    
-    <h2>
-      Registre seus moradores!
-    </h2>
-
-    <div className={style.centralizar}>
-
-    <p className={style.textoArq}>Use o nosso modelo para registro</p>
-   <p>Modelo registro</p>
-
-    <div onDrop={(e) => dropArq(e)} onDragOver={(e) => hoverArq(e)} onDragLeave={(e) => hoverLeaveArq(e)} className={style.enviarArq} >
-            <input style={{display: "none"}} type="file" id="arq"  onChange={(e) => EnviarArq(e.target.files[0])}/>
-            {temArq ? 
-            <button onClick={() => setTemArq(null)}>{temArq.name} <span>x</span></button>
-            : 
-            <label  htmlFor="arq">Arreste seu arquivo aqui</label>}
-            
-    </div>
-
-    </div>
-
-          <div className={style.botao}>
+      </div>
+      
+      <div className={style.botao}>
         <BotaoCheio text="Retornar" cor="azul" funcao={() => prosseguir("registro")} />
         <BotaoCheio text="Prosseguir" cor="azul" funcao={() => prosseguir("conferirDados")} />
         </div> 

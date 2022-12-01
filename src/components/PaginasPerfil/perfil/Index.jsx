@@ -12,7 +12,7 @@ import style from './Style.module.css';
 import editar from '../../../assets/icons/editar.png';
 
 const Perfil = () => {
-  const { nome, bloco, apartamento, codigoDoCondominio, email, numero, servico, img, setServico, setEmail, setNumero, setImg } = useContext(AppContext);
+  const { nome, bloco, apartamento, codigoDoCondominio, email, numero, servico, img, cpf, setServico, setEmail, setNumero, setImg } = useContext(AppContext);
   
   
   const [valorEmail, setValorEmail] = useState(email);
@@ -67,6 +67,7 @@ const Perfil = () => {
         setMsg("Imagem Atualizada com sucesso!")
         setCor("verde")
         setImg(res.data.data.link)
+        setImgApi(res.data.data.link)
       }).catch((err)=> {
         setCor("laranja")
         setMsg("Ops! Algo deu errado, tente de novo mais tarde!")
@@ -97,6 +98,28 @@ const Perfil = () => {
     setNovaClass("");
     mudarImg(e.dataTransfer.files[0]);
   }
+
+  async function setImgApi(img) {
+    await axios.put(`http://localhost:8080/usuario/atualizar/imagem/${cpf}/${email}/${img}`)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err)   => {
+      console.log(err)
+    })
+  }
+
+  async function setNovoNumero(novoNum) {
+    await axios.put(`http://localhost:8080/usuario/atualizar/telefone/${cpf}/${email}/${novoNum}`)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+  }
+
   return(
     <main className={ style.perfil }>
       {modalServico ? 
@@ -120,7 +143,7 @@ const Perfil = () => {
         <div className={style.foto}>
           <div className={style.fotoPerfil}>
             <div className={style.img}>
-              <img src={img} alt="" />
+              <img src={img === "imagem" ? "https://cdn-icons-png.flaticon.com/512/1361/1361728.png" : img} alt="" />
             </div>
             <div className={style.editar} onClick={() => setModalImg(true)}>
               <img src={editar} alt="" />
