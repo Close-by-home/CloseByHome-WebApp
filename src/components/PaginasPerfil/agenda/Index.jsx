@@ -27,7 +27,6 @@ const Agenda = (props) => {
       }).catch(err => {
         console.log(err)
       })
-    )
   }, [dia])
 
   function pegarDia(dia) {

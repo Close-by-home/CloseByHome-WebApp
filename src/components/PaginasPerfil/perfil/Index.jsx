@@ -28,29 +28,38 @@ const Perfil = () => {
 
   function mudarEmail(value) {
     setValorEmail(value)
-    setEmail(value);
   }
 
   function sentEmail(value) {
     if(value === 'Enter') {
       setEditEmail(true);
+      setEmail(value);
+      setNovoEmail(valorEmail)
     }
   }
 
   function mudarNumero(value) {
     setValorNumero(value)
-    setNumero(value);
   }
 
   function sentNumero(value) {
     if(value === 'Enter') {
       setEditNumero(true);
+      setNumero(value);
+      setNovoNumero(valorNumero)
     }
   }
 
-  function ativarServico() {
-    setServico(!servico);
-    setModalServico(!modalServico);
+  async function ativarServico() {
+    await axios.put(`http://localhost:8080/usuario/ativar-perfil-funcionario/${email}/${null}/${0}`)
+    .then((res) => {
+      console.log(res);
+      setServico(!servico);
+      setModalServico(!modalServico);
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   async function mudarImg(arq) {
@@ -117,7 +126,17 @@ const Perfil = () => {
     .catch((err) => {
       console.log(err)
     })
+  }
 
+
+  async function setNovoEmail(novoEmail) {
+    await axios.put(`http://localhost:8080/usuario/atualizar/email/${cpf}/${email}/${novoEmail}`)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   return(
