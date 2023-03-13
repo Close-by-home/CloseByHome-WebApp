@@ -40,7 +40,7 @@ const FormLogin = () => {
       return () => clearTimeout(timer);
     }
 
-    await axios.post(`http://localhost:8080/usuario/logar`, {
+    await axios.post(`http://54.87.52.128/usuario/logar`, {
       codigoCondominio:`${CODIGO}`, 
       email: `${EMAIL}`, 
       senha: `${SENHA}`
