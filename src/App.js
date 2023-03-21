@@ -8,8 +8,8 @@ import PerfilMorador from './pages/PerfilMorador/Index';
 import Pagina404 from './pages/paginaErro404/Index';
 import PerfilColaborador from './pages/perfilColaborador/Index';
 import AdmCond from './pages/admCond/Index';
+import ChangePassword from './pages/changePassword/Index';
 import Store from './Data/Store';
-
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
           <Route exact path="/Perfil" element={<PerfilMorador/>}/>
           <Route exact path="/PerfilColaborador" element={<PerfilColaborador/>}/>
           <Route exact path="/AdmCondominio" element={<AdmCond/>}/>
+          <Route exact path="/ChangePassword/:id" element={<ChangePassword/>}/>
           <Route path="*" element={<Pagina404/>}/>
         </Routes>
       </Router>
