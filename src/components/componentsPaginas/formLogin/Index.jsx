@@ -40,7 +40,7 @@ const FormLogin = () => {
       return () => clearTimeout(timer);
     }
 
-    await axios.post(`http://35.169.247.105:8080/usuario/logar`, {
+    await axios.post(`https://closebyhome.zapto.org:8080/usuario/logar`, {
       codigoCondominio:`${CODIGO}`, 
       email: `${EMAIL}`, 
       senha: `${SENHA}`
