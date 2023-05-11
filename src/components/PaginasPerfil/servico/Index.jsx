@@ -40,7 +40,7 @@ const Servico = (props) => {
       axios.get(`http://localhost:8080/funcionario/buscaPorServico/${e.target.value}/${codigoDoCondominio}`)
       .then(res => {
         console.log(res.data)
-        setListaServ (res.data);
+        setListaServ(res.data);
       }).catch(err => {
         console.log(err)
       })

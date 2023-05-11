@@ -1,13 +1,10 @@
 import { useState } from 'react';
 
-
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 import Notificacao from '../../modals/notificacao/Index';
+import condominioService from '../../../services/CondominioService';
 
 import style from './Style.module.css';
-import axios from 'axios';
-
-
 
 const FormEnviarArq = (props) => {
 
@@ -26,21 +23,22 @@ const FormEnviarArq = (props) => {
     if (arq.name.search("csv") > 0) {
       console.log(arq)
       setTemArq(arq);
-      // await axios.post('')   
       const formData = new FormData();
       formData.append("novosUsuarios", arq);  
     
       console.log(props.codCond.codigoCondominio, formData)
 
-
-    await axios.post(`http://localhost:8080/condominio/import-usuarios/${props.codCond.codigoCondominio}`, formData)
-    .then(res => {
-      console.log(res.data)
-      
-    }).catch(err => {
-      console.log(err)
-    })}
-    else {
+      await condominioService.sendArqRegistro({
+        arq: props.codCond.codigoCondominio, 
+        codigo: formData
+      })
+      .then(res => {
+        console.log(res.data)
+        
+      }).catch(err => {
+        console.log(err)
+      })
+    } else {
       setMsg("Infelizmente esse tipo de arquivo não é suportado")
     }
     

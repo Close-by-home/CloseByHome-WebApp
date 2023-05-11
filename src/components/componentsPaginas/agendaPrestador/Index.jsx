@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { AppContext } from '../../../Data/Store';
-import axios from 'axios';
+import agendaService from '../../../services/AgendaService';
 
 import Calendario from '../../ComponentsBibliotecas/calendario/Index'; 
 import ButtonCheio from '../../componentsReutilizacao/botaoCheio/Botao';
@@ -62,10 +62,11 @@ const AgendaPresador = ({ infos, pagina }) => {
   }
 
   function contratar() {
-
-    http://localhost:8080/agenda/47415092066/70109220048/2022-11-21T17%3A09%3A42.411
-    axios.get(`http://localhost:8080/agenda/${infos.cpf}/${cpf}/${diaSelect}T17%3A09%3A42.411`)
-      .then(res => {
+    agendaService.getAgenda({
+      cpfUser: infos.cpf,
+      cpf: cpf,
+      diaSelect: diaSelect
+    }).then(res => {
         console.log(res.data)
         setModal(false)
       }).catch(err => {

@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import { AppContext } from '../../../Data/Store';
-import axios from 'axios';
+import notificacaoService from '../../../services/NotificacaoService';
 
 import Notificacao from '../../componentsPaginas/notificacao/Index';
 
@@ -14,15 +14,14 @@ const TitutloTelas = (props) => {
   const [notificacao, setNotificacao] = useState([])
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/notificacao/2`)
-    .then(res => {
-        console.log(res.data)
-        setNotificacao(res.data.map(not => {
-          return not.descricao
-        }))
-      }).catch(err => {
-        console.log(err)
-      })
+    notificacaoService.getNotificacao({
+      id: 2
+    }).then(res => {
+      console.log(res.data)
+      setNotificacao(res.data.map(not => not.descricao))
+    }).catch(err => {
+      console.log(err)
+    })
   }, [])
 
 

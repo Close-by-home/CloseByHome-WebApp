@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { AppContext } from '../../../Data/Store';
+import condominioService from '../../../services/CondominioService';
 
 import style from './Style.module.css';
-import axios from 'axios';
 
 import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
@@ -64,16 +64,17 @@ const FormRegistro = (props) => {
       sindico: SINDICO,
       emailSindico: EMAIL
     }
-    
-    await axios.post(`http://localhost:8080/condominio/cadastrar`, condominio)
-    .then(res => {
+
+    condominioService.sendResitroCondominio({
+      condominio: condominio
+    }).then(res => {
       props.pagina("formEnviarArq");
       setCodigoDoCondominio(res.data.codigoCondominio)
       props.passarInfos(res.data);
-        console.log(res.data)
-      }).catch(err => {
-        console.log(err)
-      })
+      console.log(res.data)
+    }).catch(err => {
+      console.log(err)
+    })
   }
   
   return (

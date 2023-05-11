@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import usuarioService from '../../../services/UsuarioService';
 
 import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
@@ -26,9 +26,11 @@ const FormModSenha = () => {
   
   
   async function atualizarSenha() {
-    await axios.put(
-      `http://localhost:8080/usuario/atualizar-senha/${EMAIL}/${SENHATUAL}/${NOVASENHA}`
-    ).then(res => {
+    usuarioService.updateSenha({
+      email: EMAIL,
+      senhaAtual: SENHATUAL,
+      novaSenha: NOVASENHA
+    }).then(res => {
       console.log(res.data)
       navigate('/login')
     }).catch(err => {

@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { AppContext } from '../../../Data/Store';
+import usuarioService from '../../../services/UsuarioService';
 import axios from 'axios';
 
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
@@ -98,8 +99,10 @@ const Perfil = () => {
   }
 
   async function setImgApi(img) {
-    await axios.put(`http://localhost:8080/usuario/atualizar/imagem/${cpf}/${email}`, {
-      a: img
+    usuarioService.updateImagem({
+      cpf: cpf,
+      email: email,
+      img: img
     })
     .then((res) => {
       console.log(res)
@@ -110,8 +113,11 @@ const Perfil = () => {
   }
 
   async function setNovoNumero(novoNum) {
-    await axios.put(`http://localhost:8080/usuario/atualizar/telefone/${cpf}/${email}/${novoNum}`)
-    .then((res) => {
+    usuarioService.updateNumero({
+      cpf: cpf,
+      email: email,
+      novoNum: novoNum
+    }).then((res) => {
       console.log(res);
     })
     .catch((err) => {
@@ -121,8 +127,11 @@ const Perfil = () => {
 
 
   async function setNovoEmail(novoEmail) {
-    await axios.put(`http://localhost:8080/usuario/atualizar/email/${cpf}/${email}/${novoEmail}`)
-    .then((res) => {
+    usuarioService.updateEmail({
+      cpf: cpf,
+      email: email,
+      novoEmail: novoEmail
+    }).then((res) => {
       console.log(res);
     })
     .catch((err) => {

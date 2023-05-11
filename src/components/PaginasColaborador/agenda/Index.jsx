@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { AppContext } from '../../../Data/Store';
-import axios  from 'axios';
+import agendaService from '../../../services/AgendaService';
 
 import TitutloTelas from '../../componentsReutilizacao/tituloTelas/Index';
 import InfosAgenda from '../../componentsReutilizacao/infosAgenda/Index';
@@ -26,11 +26,10 @@ const Agenda = (props) => {
   }
 
   useEffect(() => {
-    
-      axios.get(`http://localhost:8080/agenda/${cpf}`)
-      .then(res => {
+    agendaService.getDia({
+      cpf: cpf
+    }).then(res => {
         console.log(res.data);
-        // setServicos (res.data);
         setGeralServicos (res.data ? res.data : []);
       }).catch(err => {
         console.log(err)
