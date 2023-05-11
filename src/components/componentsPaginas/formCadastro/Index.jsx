@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../../Data/Store';
-import axios from 'axios';
+import usuarioService from '../../../services/UsuarioService';
 
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
@@ -53,7 +53,7 @@ const FormCadastro = () => {
 
 
   async function cadastrar() {
-    const cadastrar = await axios.post(`http://localhost:8080/usuario/cadastrar/${`09520000`}`, {
+    usuarioService.sendCadastro({
       cpf: `${CPF}`,
       bloco: `${BLOCO}`, 
       email: `${EMAIL}`,
@@ -61,15 +61,12 @@ const FormCadastro = () => {
       nome: `${NOME}`, 
       senha: `${SENHA}`,
       imagem: null
-      })
-    .then(res => {
+    }).then(res => {
       console.log(res.data)
       return res.data; 
     }).catch(err => {
       console.log(err)
     })
-
-     console.log(cadastrar)
   }
   
   return(

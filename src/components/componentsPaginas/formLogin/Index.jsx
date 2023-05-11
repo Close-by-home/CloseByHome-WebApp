@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../../Data/Store';
-import axios from 'axios';
+import usuarioService from '../../../services/UsuarioService';
 
 import BotaoCheio from '../../componentsReutilizacao/botaoCheio/Botao';
 import InputLabel from '../../componentsReutilizacao/inputLabel/Index';
@@ -40,12 +40,11 @@ const FormLogin = () => {
       return () => clearTimeout(timer);
     }
 
-    await axios.post(`https://closebyhome.zapto.org:8080/usuario/logar`, {
+    usuarioService.sendLogin({
       codigoCondominio:`${CODIGO}`, 
       email: `${EMAIL}`, 
       senha: `${SENHA}`
-    })
-    .then(res => {
+    }).then(res => {
       console.log(res)
       let img = res.data.imagem === "imagem" ? "https://cdn-icons-png.flaticon.com/512/1361/1361728.png" : res.data.imagem.slice(6, -2)
       console.log(img)

@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { AppContext } from '../../../Data/Store';
-import axios from 'axios';
+import usuarioService from '../../../services/UsuarioService';
 
 import Calendario from '../../ComponentsBibliotecas/calendario/Index';
 import maisIcon from '../../../assets/icons/icon-mais.png';
@@ -114,8 +114,11 @@ const ConfServico = (props) => {
   }
 
   function setarServ() {
-    axios.put(`http://localhost:8080/usuario/ativar-perfil-funcionario/${email}/${servico}/${0}`)
-    .then((res) => {
+    usuarioService.updateUser({
+      email: email,
+      servico: servico,
+      recebe: 0
+    }).then((res) => {
       console.log(res);
       setModalConfirmar(false);
     })

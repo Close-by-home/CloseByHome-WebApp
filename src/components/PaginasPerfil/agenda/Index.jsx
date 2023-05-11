@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-
-import axios  from 'axios';
+import agendaService from '../../../services/AgendaService';
 
 import agenda from '../../../Data/agenda';
 
@@ -19,8 +18,9 @@ const Agenda = (props) => {
   const { cpf } = useContext(AppContext);
 
   useEffect(() => {
-      axios.get(`http://localhost:8080/agenda/buscarPorCpf/${cpf}`)
-      .then(res => {
+      agendaService.getPorCPF({
+        cpf: cpf
+      }).then(res => {
         setGeralServicos(res.data ? res.data : []);
         console.log(res.data)
       }).catch(err => {
