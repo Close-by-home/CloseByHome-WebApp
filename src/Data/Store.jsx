@@ -11,8 +11,6 @@ const initialState = {
     cpf: "",
     servico: false,
     infoRegistro: {}
-
-
 }
 
 export const AppContext = createContext(initialState);
