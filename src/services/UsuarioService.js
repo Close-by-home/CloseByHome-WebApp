@@ -54,6 +54,14 @@ class UsuarioService extends Services {
 
     return this._api.put(this._url);
   }
+
+  updateRecuperaSenha(request) {
+    const {cpf, senhaNova} = request;
+    this._url = `/recuperar-senha/${cpf}/${senhaNova}`
+
+    return this._api.put(this._url);
+  }
+
 }
 
 const usuarioService = new UsuarioService();

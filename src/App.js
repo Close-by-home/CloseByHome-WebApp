@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/Perfil" element={<PerfilMorador/>}/>
           <Route exact path="/PerfilColaborador" element={<PerfilColaborador/>}/>
           <Route exact path="/AdmCondominio" element={<AdmCond/>}/>
-          <Route exact path="/ChangePassword/:id" element={<ChangePassword/>}/>
+          <Route exact path="/recuperarSenha/:cpf" element={<ChangePassword/>}/>
           <Route path="*" element={<Pagina404/>}/>
         </Routes>
       </Router>
