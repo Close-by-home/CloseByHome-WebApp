@@ -10,7 +10,7 @@ import { Axios } from 'axios';
 const Historico = (props) => {
 
 //  useEffect(() => {
-//      axios.get(`http://localhost:8080/funcionario/buscaPorServico/${}`)
+//      axios.get(`https://closebyhome.zapto.org:8443/funcionario/buscaPorServico/${}`)
 //     .then(res => {
 //       console.log(res.data)
 //       return res.data;

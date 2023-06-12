@@ -73,7 +73,7 @@ const FormEnviarArq = (props) => {
   }
 
   
-  const urlDownload = 'http://localhost:8080/condominio/arquivo-exemplo'
+  const urlDownload = 'https://closebyhome.zapto.org:8443/condominio/arquivo-exemplo'
   
 
   return (

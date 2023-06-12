@@ -21,7 +21,7 @@ const Servico = (props) => {
   const { codigoDoCondominio } = useContext(AppContext);
   
   useEffect(() => {
-    axios.get(`http://localhost:8080/funcionario/${codigoDoCondominio}`)
+    axios.get(`https://closebyhome.zapto.org:8443/funcionario/${codigoDoCondominio}`)
       .then(res => {
         console.log(res.data)
         setListaServ (res.data);
@@ -37,7 +37,7 @@ const Servico = (props) => {
   function filtroTag(e) {
     setListaServ([])
     if(e.target.value) {
-      axios.get(`http://localhost:8080/funcionario/buscaPorServico/${e.target.value}/${codigoDoCondominio}`)
+      axios.get(`https://closebyhome.zapto.org:8443/funcionario/buscaPorServico/${e.target.value}/${codigoDoCondominio}`)
       .then(res => {
         console.log(res.data)
         setListaServ(res.data);
@@ -45,7 +45,7 @@ const Servico = (props) => {
         console.log(err)
       })
     } else {
-      axios.get(`http://localhost:8080/funcionario/${codigoDoCondominio}/`)
+      axios.get(`https://closebyhome.zapto.org:8443/funcionario/${codigoDoCondominio}/`)
       .then(res => {
         console.log(res.data)
         setListaServ (res.data);
@@ -59,7 +59,7 @@ const Servico = (props) => {
     setListaServ([])
     setPesquisa(e.target.value)
     if(e.target.value) {
-      axios.get(`http://localhost:8080/funcionario/buscaPorNome/${e.target.value}/${codigoDoCondominio}`)
+      axios.get(`https://closebyhome.zapto.org:8443/funcionario/buscaPorNome/${e.target.value}/${codigoDoCondominio}`)
       .then(res => {
         console.log(res.data)
         setListaServ (res.data);
@@ -67,7 +67,7 @@ const Servico = (props) => {
         console.log(err)
       })
     } else {
-      axios.get(`http://localhost:8080/funcionario/${codigoDoCondominio}`)
+      axios.get(`https://closebyhome.zapto.org:8443/funcionario/${codigoDoCondominio}`)
       .then(res => {
         console.log(res.data)
         setListaServ (res.data);
