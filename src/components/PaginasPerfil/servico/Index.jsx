@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from 'react';
-import axios  from 'axios';
 import { AppContext } from '../../../Data/Store';
 
 import TituloTelas from '../../componentsReutilizacao/tituloTelas/Index';
@@ -13,22 +12,24 @@ import lupa from '../../../assets/icons/pesquisaInput.png';
 import naoEncontrado from '../../../assets/img/servicoNaoEncontrado.png';
 
 import historico from '../../../Data/historico';
+import funcionarioService from '../../../services/FuncionarioService';
 
 const Servico = (props) => {
   const [servico, setServico] = useState();
   const [pesquisa, setPesquisa] = useState("");
   const [listaServ, setListaServ] = useState([historico]);
   const { codigoDoCondominio } = useContext(AppContext);
-  
+
   useEffect(() => {
-    axios.get(`http://localhost:8080/funcionario/${codigoDoCondominio}`)
-      .then(res => {
+    funcionarioService.getFuncionario({
+      codigoDoCondominio: codigoDoCondominio
+    }).then(res => {
         console.log(res.data)
         setListaServ (res.data);
       }).catch(err => {
         console.log(err)
       })
-  }, [])
+  }, [codigoDoCondominio])
 
   function selecionarServico(servico) {
     setServico(servico);
@@ -36,16 +37,20 @@ const Servico = (props) => {
 
   function filtroTag(e) {
     setListaServ([])
-    if(e.target.value) {
-      axios.get(`http://localhost:8080/funcionario/buscaPorServico/${e.target.value}/${codigoDoCondominio}`)
-      .then(res => {
+    if(e.target.value && e.target.value !== "Todos") {
+      funcionarioService.getFuncionarioServico({
+        servico: e.target.value,
+        codigoDoCondominio: codigoDoCondominio
+      }).then(res => {
         console.log(res.data)
         setListaServ(res.data);
       }).catch(err => {
         console.log(err)
       })
     } else {
-      axios.get(`http://localhost:8080/funcionario/${codigoDoCondominio}/`)
+      funcionarioService.getFuncionario({
+        codigoDoCondominio: codigoDoCondominio
+      })
       .then(res => {
         console.log(res.data)
         setListaServ (res.data);
@@ -59,7 +64,10 @@ const Servico = (props) => {
     setListaServ([])
     setPesquisa(e.target.value)
     if(e.target.value) {
-      axios.get(`http://localhost:8080/funcionario/buscaPorNome/${e.target.value}/${codigoDoCondominio}`)
+      funcionarioService.getFuncionarioNome({
+        nome: e.target.value,
+        codigoDoCondominio: codigoDoCondominio
+      })
       .then(res => {
         console.log(res.data)
         setListaServ (res.data);
@@ -67,8 +75,9 @@ const Servico = (props) => {
         console.log(err)
       })
     } else {
-      axios.get(`http://localhost:8080/funcionario/${codigoDoCondominio}`)
-      .then(res => {
+      funcionarioService.getFuncionario({
+        codigoDoCondominio: codigoDoCondominio
+      }).then(res => {
         console.log(res.data)
         setListaServ (res.data);
       }).catch(err => {

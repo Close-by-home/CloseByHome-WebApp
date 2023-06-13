@@ -6,10 +6,10 @@ class UsuarioService extends Services {
   }
 
   sendLogin(request) {
-    const { login } = request;
+    // const { login } = request;
     this._url = "/logar";
 
-    return this._api.post(this._url, login);
+    return this._api.post(this._url, request);
   }
 
   sendCadastro(request) {

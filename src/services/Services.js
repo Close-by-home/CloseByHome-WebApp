@@ -5,7 +5,8 @@ class Services {
     this._url = "";
     this._api = axios.create({
       baseURL:
-        "https://closebyhome.zapto.org:8443" + endpoint,
+      "https://localhost:8443" + endpoint,
+        // "https://closebyhome.zapto.org:8443" + endpoint,
       timeout: 100000,
       headers: {
         "Access-Control-Allow-Origin": "*",

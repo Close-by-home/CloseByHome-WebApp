@@ -62,6 +62,7 @@ const AgendaPresador = ({ infos, pagina }) => {
   }
 
   function contratar() {
+    console.log('oi?')
     agendaService.getAgenda({
       cpfUser: infos.cpf,
       cpf: cpf,
