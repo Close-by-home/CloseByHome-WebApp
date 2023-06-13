@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import agendaService from '../../../services/AgendaService';
+import axios from 'axios';
 
 import agenda from '../../../Data/agenda';
 
@@ -18,15 +19,23 @@ const Agenda = (props) => {
   const { cpf } = useContext(AppContext);
 
   useEffect(() => {
-      agendaService.getPorCPF({
-        cpf: cpf
-      }).then(res => {
-        setGeralServicos(res.data ? res.data : []);
-        console.log(res.data)
-      }).catch(err => {
-        console.log(err)
-      })
-  }, [])
+    axios.get(`https://closebyhome.zapto.org:8443/agenda/buscarPorCpf/${cpf}`)
+    .then((resp) => {
+      console.log(resp.data)
+      setServicos(resp.data)
+    })
+    .catch((err) => {
+      console.log(err) 
+    })
+      // agendaService.getPorCPF({
+      //   cpf: cpf
+      // }).then(res => {
+      //   setGeralServicos(res.data ? res.data : []);
+      //   console.log(res.data)
+      // }).catch(err => {
+      //   console.log(err)
+      // })
+  }, [dia])
 
   function pegarDia(dia) {
 
@@ -44,14 +53,16 @@ const Agenda = (props) => {
   
 
   function diasTrab(dataServ) {
+    console.log(dataServ[2]["dateTime"])
     if(dataServ.length > 0) {
       return servicos.map((serv) => {
-        return(
+        console.log(serv["dateTime"].slice(11))
+        return serv["dateTime"].includes(dia) && (
           <InfosAgenda 
             key={ serv.id }
-            nome={ serv.nome } 
-            horario={ serv.horario }  
-            servico={ serv.servico } 
+            nome={ serv.nomeFuncionario } 
+            horario={ serv["dateTime"].slice(11) }  
+            servico={ serv.nomeServico } 
             contato={ serv.contato }
           />
         )
@@ -76,7 +87,7 @@ const Agenda = (props) => {
         <div className={ style.agendados }>
           <fieldset className={ style.servicosAgendados }>
             <legend>Serviços Agendados</legend>
-            { diasTrab(servicos) }
+            {servicos.length > 1 && diasTrab(servicos) }
           </fieldset>
         </div>
       </div>

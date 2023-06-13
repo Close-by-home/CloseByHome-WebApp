@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import axios from 'axios';
 import { AppContext } from '../../../Data/Store';
 import agendaService from '../../../services/AgendaService';
 
@@ -63,16 +64,32 @@ const AgendaPresador = ({ infos, pagina }) => {
 
   function contratar() {
     console.log('oi?')
-    agendaService.getAgenda({
-      cpfUser: infos.cpf,
-      cpf: cpf,
-      diaSelect: diaSelect
-    }).then(res => {
-        console.log(res.data)
-        setModal(false)
-      }).catch(err => {
-        console.log(err)
-      })
+    console.log(horarioSelect.slice(0, 2))
+    axios.post(
+      `https://closebyhome.zapto.org:8443/agenda/${infos.cpf}/${cpf}/${diaSelect}T${horarioSelect.slice(0, 2)}%3A00%3A00.000`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      }
+    })
+    .then((res) => {
+      console.log(res.data)  
+      setModal(false)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+    // agendaService.getAgenda({
+    //   cpfUser: infos.cpf,
+    //   cpf: cpf,
+    //   diaSelect: diaSelect
+    // }).then(res => {
+    //   console.log(res.data)
+    //   setModal(false)
+    // }).catch(err => {
+    //   console.log(err)
+    // })
   }
 
   function mostrarHorario() {
