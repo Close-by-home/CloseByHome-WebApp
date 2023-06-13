@@ -17,7 +17,7 @@ import funcionarioService from '../../../services/FuncionarioService';
 const Servico = (props) => {
   const [servico, setServico] = useState();
   const [pesquisa, setPesquisa] = useState("");
-  const [listaServ, setListaServ] = useState([historico]);
+  const [listaServ, setListaServ] = useState([]);
   const { codigoDoCondominio } = useContext(AppContext);
 
   useEffect(() => {
@@ -125,7 +125,9 @@ const Servico = (props) => {
               <legend>Serviços no seu condominio</legend>
               {listaServ ? listaServ.map((serv, i) => {
                 return <InfosServicos trab={ serv } funcao={ selecionarServico } key={i}/>
-              }): null}
+              }): (
+                <div className={style.carrega} />
+              )}
             </fieldset>
           </div>
         </div>

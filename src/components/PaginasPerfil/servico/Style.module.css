@@ -100,6 +100,24 @@
   align-items: center;
   overflow-x: hidden;
 }
+.carrega{
+  border-radius: 99999px;
+  width: 1.5em;
+  height: 1.5em;
+  border-top: #FF9F1C solid .2em;
+  border-right: #FF9F1C solid .2em;
+  border-left: #FF9F1C solid .2em;
+  border-bottom: #fff solid .2em;
+  animation: loading 1s infinite linear;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    }
+}
 .servicosDisponiveis legend{
   font-weight: 600;
   padding: 0 1em;
