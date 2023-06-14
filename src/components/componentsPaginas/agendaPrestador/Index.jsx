@@ -75,6 +75,10 @@ const AgendaPresador = ({ infos, pagina }) => {
     .then((res) => {
       console.log(res.data)  
       setModal(false)
+      setNotificacao(true)
+      setTimeout(() => {
+        setNotificacao(false)
+      }, 3000)
     })
     .catch((err) => {
       console.log(err)
